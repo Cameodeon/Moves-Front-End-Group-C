@@ -8,7 +8,6 @@ class Content extends Component {
     this.state = {
       textContent : ""
     };
-    localStorage.setItem("lang", "en-CA");
   }
 
   componentDidMount() {
