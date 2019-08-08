@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import './App.css';
+import './Home.css';
 
-class Home extends React.Component {
+class Home extends Component {
 
-    state = { dict: { } };
+    state = {
+        dict: {  }
+    };
 
     componentDidMount() {
         this.setState({dict: this.props.dict});
@@ -13,13 +15,15 @@ class Home extends React.Component {
     render() {
         var dict = this.state.dict;
         return (
-            <ul className="list-inline">
-                <li className="list-inline-item"><HomeItem image="../public/image/libra.png" title={dict.lawAndTradition} /></li>
-                {/* <li className="list-inline-item"><HomeItem image="../public/image/location.png" title={dict.location} /></li> */}
-                <li className="list-inline-item"><HomeItem image="../public/image/thief.png" title={dict.thiefCases} /></li>
-                <li className="list-inline-item"><HomeItem image="../public/image/speaking.png" title={dict.languageBarrier} /></li>
-                <li className="list-inline-item"><HomeItem image="../public/image/sleeping.png" title={dict.overnightStay} /></li>
-            </ul>
+            <div className="container-fluid">
+                <div className="row">
+                    <HomeItem className="col-xs-6 col-md-4" image="image/menuIcon/libra.png" title={dict.lawAndTradition} />
+                    <HomeItem className="col-xs-6 col-md-4" image="image/menuIcon/location.png" title={dict.location} />
+                    <HomeItem className="col-xs-6 col-md-4" image="image/menuIcon/thief.png" title={dict.thiefCases} />
+                    <HomeItem className="col-xs-6 col-md-4" image="image/menuIcon/speaking.png" title={dict.languageBarrier} />
+                    <HomeItem className="col-xs-6 col-md-4" image="image/menuIcon/sleeping.png" title={dict.overnightStay} />
+                </div>
+            </div>
         );
     }
 }
@@ -28,9 +32,9 @@ export default Home;
 
 const HomeItem = (props) => {
     return (
-        <div>
-            <img src={this.props.image} alt={this.props.title} />
-            <h4>{this.props.title}</h4>
+        <div className="text-center content">
+            <img className="image-responsive" src={props.image} alt={props.title} />
+            <p>{props.title}</p>
         </div>
     );
 }

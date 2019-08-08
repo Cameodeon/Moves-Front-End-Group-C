@@ -1,9 +1,25 @@
 {
     "home": {
-        "lawAndTradition": "Law and Tradition",
+        "lawAndTradition": "Law & Tradition",
         "location": "Location",
         "thiefCases":  "Theft Cases",
         "languageBarrier": "Language Barrier",
         "overnightStay": "Overnight Stay"
+    },
+    "header": {
+        "description": "The Moroccan Volunteer Emergency Service",
+        "call": "Contact Emergency"
+    },
+    "navbar": {
+        "home": "Home",
+        "help": "Need Help?",
+        "info": "Further Information",
+        "about": "About",
+        "contact": "Contact",
+        "selectLang": "Select Language",
+        "english": "English",
+        "danish": "Danish",
+        "french": "French",
+        "vietnamese": "Vietnamese"
     }
 }

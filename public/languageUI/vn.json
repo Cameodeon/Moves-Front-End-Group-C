@@ -1,0 +1,25 @@
+{
+    "home": {
+        "lawAndTradition": "Pháp Luật & Truyền Thống",
+        "location": "Vị Trí",
+        "thiefCases":  "Trộm Cắp",
+        "languageBarrier": "Rào Cản Ngôn Ngữ",
+        "overnightStay": "Ở Qua Đêm"
+    },
+    "header": {
+        "description": "Dịch vụ Khẩn cấp của tình nguyện viên Morocco",
+        "call": "Contact Emergency"
+    },
+    "navbar": {
+        "home": "Trang chủ",
+        "help": "Cần giúp đỡ?",
+        "info": "Thông tin khác",
+        "about": "Giới thiệu",
+        "contact": "Liên hệ",
+        "selectLang": "Chọn ngôn ngữ",
+        "english": "Tiếng Anh",
+        "danish": "Tiếng Đan Mạch",
+        "french": "Tiếng Pháp",
+        "vietnamese": "Tiếng Việt"
+    }
+}
