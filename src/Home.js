@@ -15,13 +15,13 @@ class Home extends Component {
     render() {
         var dict = this.state.dict;
         return (
-            <div className="container-fluid">
-                <div className="row text-center">
-                    <HomeItem className="col-xs-6 col-md-4" image="image/menuIcon/libra.png" title={dict.lawAndTradition} />
-                    <HomeItem className="col-xs-6 col-md-4" image="image/menuIcon/location.png" title={dict.location} />
-                    <HomeItem className="col-xs-6 col-md-4" image="image/menuIcon/thief.png" title={dict.thiefCases} />
-                    <HomeItem className="col-xs-6 col-md-4" image="image/menuIcon/speaking.png" title={dict.languageBarrier} />
-                    <HomeItem className="col-xs-6 col-md-4" image="image/menuIcon/sleeping.png" title={dict.overnightStay} />
+            <div className="container">
+                <div className="row">
+                    <HomeItem image="image/menuIcon/libra.png" title={dict.lawAndTradition} />
+                    <HomeItem image="image/menuIcon/location.png" title={dict.location} />
+                    <HomeItem image="image/menuIcon/thief.png" title={dict.thiefCases} />
+                    <HomeItem image="image/menuIcon/speaking.png" title={dict.languageBarrier} />
+                    <HomeItem image="image/menuIcon/sleeping.png" title={dict.overnightStay} />
                 </div>
             </div>
         );
@@ -32,9 +32,12 @@ export default Home;
 
 const HomeItem = (props) => {
     return (
-        <div className="text-center content">
-            <img className="image-responsive" src={props.image} alt={props.title} />
-            <p>{props.title}</p>
+        <div className="col-xs-3 col-md-4" >
+            <div className="dummy"></div>
+            <div className="thumbnail">
+                <img className="image-responsive" src={props.image} alt={props.title} />
+                <p>{props.title}</p>
+            </div>
         </div>
     );
 }
