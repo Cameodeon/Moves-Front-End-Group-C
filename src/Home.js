@@ -16,7 +16,7 @@ class Home extends Component {
         var dict = this.state.dict;
         return (
             <div className="container-fluid">
-                <div className="row">
+                <div className="row text-center">
                     <HomeItem className="col-xs-6 col-md-4" image="image/menuIcon/libra.png" title={dict.lawAndTradition} />
                     <HomeItem className="col-xs-6 col-md-4" image="image/menuIcon/location.png" title={dict.location} />
                     <HomeItem className="col-xs-6 col-md-4" image="image/menuIcon/thief.png" title={dict.thiefCases} />

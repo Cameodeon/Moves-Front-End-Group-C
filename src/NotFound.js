@@ -4,13 +4,11 @@ import React, { Component } from 'react';
 class NotFound extends Component {
 
     render() {
+        var dict = this.props.dict;
         return (
             <div id='error'>
-                <h2 className="notFoundTitle">404 - Oops! This page can’t be found.</h2>
-                <p className="notFoundDesc">
-                    It looks like nothing was found at this location.
-                    Maybe try one of the links in the menu or press back to go to the previous page.
-                </p>
+                <h2 className="notFoundTitle">{dict.title}</h2>
+                <p className="notFoundDesc">{dict.message}</p>
 
             </div>
 

@@ -67,7 +67,7 @@ class App extends Component {
           <Route exact path='/' render={() => <Home dict={dict.home}/>} />
           {/* <Route exact path='/content/:slug' render={props => <Content slug={props.match.params.slug}/>} />
           <Route exact path='/emergencyContact' render={() => <EmergencyContact/>} />*/}
-          <Route render={() => <NotFound/>} />
+          <Route render={() => <NotFound dict={dict.notfound} />} />
         </Switch>
         <hr />
       </div>
