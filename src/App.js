@@ -59,7 +59,7 @@ class App extends Component {
   render() {
     var dict = this.state.dict;
     return !this.state.loaded ? null : (
-      <div className="container">
+      <div className="container-fluid">
         <Header dict={dict.header} />
         <Navbar dict={dict.navbar} changeLanguage={this.onChangeLanguage} />
         <hr />

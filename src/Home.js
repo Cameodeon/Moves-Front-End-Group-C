@@ -15,7 +15,7 @@ class Home extends Component {
     render() {
         var dict = this.state.dict;
         return (
-            <div className="container">
+            <div className="container-fluid">
                 <div className="row">
                     <HomeItem image="image/menuIcon/libra.png" title={dict.lawAndTradition} />
                     <HomeItem image="image/menuIcon/location.png" title={dict.location} />
@@ -32,11 +32,12 @@ export default Home;
 
 const HomeItem = (props) => {
     return (
-        <div className="col-xs-3 col-md-4" >
-            <div className="dummy"></div>
-            <div className="thumbnail">
-                <img className="image-responsive" src={props.image} alt={props.title} />
-                <p>{props.title}</p>
+        <div className="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3">
+            <div className="square">
+                <div className="square-content">
+                    <img className="homeItemIcon" src={props.image} alt={props.title} /><br />
+                    <p className="homeItemTitle">{props.title}</p>
+                </div>
             </div>
         </div>
     );
