@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Route, Switch, Link } from "react-router-dom";
 import NotFound from './NotFound';
+import Content from './Content';
 import './App.css';
 import 'bootstrap/js/src/collapse.js';
 
@@ -20,10 +21,10 @@ class App extends Component {
     if (!localStorage.getItem("lang")) {
       localStorage.setItem("lang", "en-CA");
       this.state.language = 'en-CA';
-      this.state.langFileDir = `languageUI/en-CA.json`;
+      this.state.langFileDir = `/languageUI/en-CA.json`;
     } else {
       this.state.language = localStorage.getItem("lang");
-      this.state.langFileDir = `languageUI/${localStorage.getItem("lang")}.json`;
+      this.state.langFileDir = `/languageUI/${localStorage.getItem("lang")}.json`;
     }
     this.onChangeLanguage = this.onChangeLanguage.bind(this);
   }
@@ -65,8 +66,8 @@ class App extends Component {
         <hr />
         <Switch>
           <Route exact path='/' render={() => <Home dict={dict.home}/>} />
-          {/* <Route exact path='/content/:slug' render={props => <Content slug={props.match.params.slug}/>} />
-          <Route exact path='/emergencyContact' render={() => <EmergencyContact/>} />*/}
+          <Route exact path='/content/:slug' render={props => <Content slug={props.match.params.slug}/>} />
+          {/* <Route exact path='/emergencyContact' render={() => <EmergencyContact/>} /> */}
           <Route render={() => <NotFound dict={dict.notfound} />} />
         </Switch>
         <hr />
@@ -87,7 +88,6 @@ const Header = (props) => {
         <h1>MO:VES</h1>
         <p>{dict.description}</p>
         <Link id="emergencyButton" className="btn btn-danger" to="/emergency">{dict.call}</Link>
-        {/* <a href="tel:123-456-7890">123-456-7890</a> */}
       </div>
 
     </header>
