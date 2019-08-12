@@ -83,8 +83,8 @@ const Header = (props) => {
   return(
     <header>
       <div className="header text-center">
-        <h1>MO:VES</h1>
-        <p>{dict.description}</p>
+        <h1 className="appTitle">MO:VES</h1>
+        <p className="appDescription">{dict.description}</p>
         <Link id="emergencyButton" className="btn btn-danger" to="/emergency">{dict.call}</Link>
       </div>
     </header>

@@ -10,12 +10,12 @@ class EmergencyContact extends Component {
                 <div className="row">
                     <div className="col-md-6">
                         <a href="tel:+33644222103">
-                            <MenuItem buttonType="outline-warning" image="/image/menuIcon/libra.png" title={dict.moroccoCallCenter} subtitle="+33 644 222 103" />
+                            <MenuItem buttonType="warning" image="/image/country/morocco.png" title={dict.moroccoCallCenter} subtitle="+33 644 222 103" />
                         </a>
                     </div>
                     <div className="col-md-6">
                         <a href="tel:+45 91765840">
-                            <MenuItem buttonType="outline-danger" image="/image/menuIcon/libra.png" title={dict.denmarkCallCenter} subtitle="+45 91 76 58 40" />
+                            <MenuItem buttonType="danger" image="/image/country/denmark.png" title={dict.denmarkCallCenter} subtitle="+45 91 76 58 40" />
                         </a>
                     </div>
                 </div>

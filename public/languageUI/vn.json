@@ -8,7 +8,7 @@
     },
     "header": {
         "description": "Dịch vụ Khẩn cấp của tình nguyện viên Morocco",
-        "call": "Liên hệ Khẩn cấp"
+        "call": "LIÊN HỆ KHẨN CẤP"
     },
     "navbar": {
         "home": "Trang chủ",
@@ -21,5 +21,9 @@
     "notfound": {
         "title": "404 - Oops! Trang này không tồn tại.",
         "message": "Có vẻ như tài nguyên không tồn tại. Bạn có thể sử dụng thanh điều hướng để đến trang khác hoặc dùng nút \"Trở về\"."
+    },
+    "emergency": {
+        "moroccoCallCenter": "Tổng đài Morocco",
+        "denmarkCallCenter": "Tổng đài Đan Mạch"
     }
 }
