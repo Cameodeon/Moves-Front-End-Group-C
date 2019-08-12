@@ -6,11 +6,6 @@
     margin-bottom: 5vh;
 }
 
-.smaller {
-    width: 50% !important;
-    margin-left: 25%;
-}
-
 .square:before{
     content: "";
     display: block;
