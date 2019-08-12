@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ReactHtmlParser from 'react-html-parser';
+import { throwStatement } from '@babel/types';
 // import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser';
 
 class Content extends Component {
@@ -9,7 +10,7 @@ class Content extends Component {
     title: ""
   };
 
-  url = `https://localhost:8080/api/textContent/${localStorage.getItem("lang")}/`;
+  url = `http://localhost:8080/api/textContent/${localStorage.getItem("lang")}/`;
 
   componentDidMount() {
     fetch(this.url + this.props.slug)
@@ -27,7 +28,10 @@ class Content extends Component {
   render() {
     return (
       <div>
-        { ReactHtmlParser(this.state.textContent) }
+        <h2>{this.state.title}</h2>
+        <div>
+          { ReactHtmlParser(this.state.textContent) }
+        </div>
       </div>
     );
   }

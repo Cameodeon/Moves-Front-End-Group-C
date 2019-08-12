@@ -43,7 +43,7 @@ class App extends Component {
   onChangeLanguage(newLang) {
     this.setState({loaded: false,
       language: newLang,
-      langFileDir: `languageUI/${newLang}.json`
+      langFileDir: `/languageUI/${newLang}.json`
     }, () => {
       localStorage.setItem("lang", newLang);
       fetch(this.state.langFileDir, {
