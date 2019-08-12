@@ -3,7 +3,6 @@ import { Route, Switch, Link } from "react-router-dom";
 import NotFound from './NotFound';
 import Content from './Content';
 import './App.css';
-import 'bootstrap/js/src/collapse.js';
 
 import Home from './Home';
 
@@ -49,7 +48,7 @@ class App extends Component {
       fetch(this.state.langFileDir, {
         headers: {
           'Content-Type': 'application/json',
-          'Accept': 'application/json'
+          'Accept': 'application/json',
         }
       })
       .then(res => res.json())
@@ -130,12 +129,14 @@ const Navbar = (props) => {
           <ul className="navbar-nav ml-auto text-center">
             <li className="nav-item">
               <button className="nav-link btn" onClick={() => changeLanguage("en-CA")}>
-                {dict.english}
+                <span className="flag-icon flag-icon-ca"></span> &nbsp;
+                English (Canada)
               </button>
             </li>
             <li className="nav-item">
               <button className="nav-link btn" onClick={() => changeLanguage("vn")}>
-                {dict.vietnamese}
+                <span className="flag-icon flag-icon-vn"></span> &nbsp;
+                Tiếng Việt
               </button>
             </li>
             {/* <li className="nav-item">

@@ -16,11 +16,7 @@
         "info": "Thông tin khác",
         "about": "Giới thiệu",
         "contact": "Liên hệ",
-        "selectLang": "Chọn ngôn ngữ",
-        "english": "Tiếng Anh",
-        "danish": "Tiếng Đan Mạch",
-        "french": "Tiếng Pháp",
-        "vietnamese": "Tiếng Việt"
+        "selectLang": "Chọn ngôn ngữ"
     },
     "notfound": {
         "title": "404 - Oops! Trang này không tồn tại.",

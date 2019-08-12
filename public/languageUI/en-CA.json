@@ -16,11 +16,7 @@
         "info": "Further Information",
         "about": "About",
         "contact": "Contact",
-        "selectLang": "Select Language",
-        "english": "English",
-        "danish": "Danish",
-        "french": "French",
-        "vietnamese": "Vietnamese"
+        "selectLang": "Select Language"
     },
     "notfound": {
         "title": "404 - Oops! This page can’t be found.",

@@ -6,6 +6,7 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
+import 'flag-icon-css/css/flag-icon.min.css';
 
 ReactDOM.render(
     <BrowserRouter>
