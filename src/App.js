@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { Route, Switch, Link } from "react-router-dom";
+import Home from './Home';
 import NotFound from './NotFound';
 import Content from './Content';
+import EmergencyContact from './EmergencyContact';
 import './App.css';
-
-import Home from './Home';
 
 class App extends Component {
 
@@ -66,7 +66,7 @@ class App extends Component {
         <Switch>
           <Route exact path='/' render={() => <Home dict={dict.home}/>} />
           <Route exact path='/content/:slug' render={props => <Content slug={props.match.params.slug}/>} />
-          {/* <Route exact path='/emergencyContact' render={() => <EmergencyContact/>} /> */}
+          <Route exact path='/emergency' render={() => <EmergencyContact dict={dict.emergency} />} />
           <Route render={() => <NotFound dict={dict.notfound} />} />
         </Switch>
         <hr />
@@ -82,13 +82,11 @@ const Header = (props) => {
   var dict = props.dict;
   return(
     <header>
-              
       <div className="header text-center">
         <h1>MO:VES</h1>
         <p>{dict.description}</p>
         <Link id="emergencyButton" className="btn btn-danger" to="/emergency">{dict.call}</Link>
       </div>
-
     </header>
   );
 }

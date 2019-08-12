@@ -21,13 +21,13 @@ class Content extends Component {
     }))
     .catch(err =>this.setState({ 
       textContent: "<h2>Content Coming Soon...</h2>",
-      title: "Hello!"
+      title: "You are offline... :("
     }));
   }
 
   render() {
     return (
-      <div>
+      <div className="container-fluid">
         <h2>{this.state.title}</h2>
         <div>
           { ReactHtmlParser(this.state.textContent) }
