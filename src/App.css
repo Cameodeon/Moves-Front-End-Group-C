@@ -6,6 +6,10 @@
   display: inline;
 }
 
+/* .nav-item:not(.first-nav-item) {
+  border-left: 0.1px solid black;
+} */
+
 .appTitle {
   font-size: 36pt;
   font-weight: bolder;
