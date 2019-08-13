@@ -3,8 +3,11 @@ import { Route, Switch, Link } from "react-router-dom";
 import NotFound from './NotFound';
 import Content from './Content';
 import './App.css';
-
 import Home from './Home';
+import Login from "./Login";
+import Activate from './Activate';
+
+
 
 class App extends Component {
 
@@ -67,6 +70,8 @@ class App extends Component {
           <Route exact path='/' render={() => <Home dict={dict.home}/>} />
           <Route exact path='/content/:slug' render={props => <Content slug={props.match.params.slug}/>} />
           {/* <Route exact path='/emergencyContact' render={() => <EmergencyContact/>} /> */}
+          <Route exact path="/login" render={() => <Login />}/>
+          <Route exact path="/activate" render={() => <Activate/>}/>
           <Route render={() => <NotFound dict={dict.notfound} />} />
         </Switch>
         <hr />
