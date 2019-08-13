@@ -6,7 +6,13 @@ import Navbar from './Navbar';
 import NotFound from './NotFound';
 import Content from './Content';
 import EmergencyContact from './EmergencyContact';
+import Login from "./Login";
+import Activate from './Activate';
+import Logout from './Logout';
+import Setting from './Setting';
 import './App.css';
+
+
 
 class App extends Component {
 
@@ -69,6 +75,10 @@ class App extends Component {
           <Route exact path='/' render={() => <Home dict={dict.home}/>} />
           <Route exact path='/content/:slug' render={props => <Content slug={props.match.params.slug}/>} />
           <Route exact path='/emergency' render={() => <EmergencyContact dict={dict.emergency} />} />
+          <Route exact path="/login" render={() => <Login />}/>
+          <Route exact path="/logout" render={() => <Logout />}/>
+          <Route exact path="/setting" render={() => <Setting/>}/>
+          <Route exact path="/activate" render={() => <Activate/>}/>
           <Route render={() => <NotFound dict={dict.notfound} />} />
         </Switch>
         <hr />
