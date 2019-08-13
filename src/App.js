@@ -6,6 +6,8 @@ import './App.css';
 import Home from './Home';
 import Login from "./Login";
 import Activate from './Activate';
+import Logout from './Logout';
+import Setting from './Setting';
 
 
 
@@ -71,6 +73,8 @@ class App extends Component {
           <Route exact path='/content/:slug' render={props => <Content slug={props.match.params.slug}/>} />
           {/* <Route exact path='/emergencyContact' render={() => <EmergencyContact/>} /> */}
           <Route exact path="/login" render={() => <Login />}/>
+          <Route exact path="/logout" render={() => <Logout />}/>
+          <Route exact path="/setting" render={() => <Setting/>}/>
           <Route exact path="/activate" render={() => <Activate/>}/>
           <Route render={() => <NotFound dict={dict.notfound} />} />
         </Switch>
