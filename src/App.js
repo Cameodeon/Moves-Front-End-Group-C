@@ -8,8 +8,6 @@ import Content from './Content';
 import EmergencyContact from './EmergencyContact';
 import LogIn from "./LogIn";
 import LogOut from './LogOut';
-import Activate from './Activate';
-import Setting from './Setting';
 import './App.css';
 
 class App extends Component {

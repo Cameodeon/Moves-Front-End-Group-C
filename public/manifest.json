@@ -4,11 +4,11 @@
   "icons": [
     {
       "src": "favicon.png",
-      "sizes": "96x96",
+      "sizes": "144x144",
       "type": "image/png"
     }
   ],
-  "start_url": "localhost:8080",
+  "start_url": "http://localhost:8080",
   "display": "standalone",
   "theme_color": "#ff0011",
   "background_color": "#ffffff"
