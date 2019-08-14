@@ -16,7 +16,10 @@
         "info": "Further Information",
         "about": "About",
         "contact": "Contact",
-        "login": "Log In",
+        "toggleLog": {
+            "login": "Log In",
+            "logout": "Log Out"
+        },
         "selectLang": "Select Language"
     },
     "notfound": {

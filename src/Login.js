@@ -1,122 +1,83 @@
 import React, { Component } from 'react';
-import {Redirect} from 'react-router-dom'
+import { withRouter } from 'react-router-dom';
+import { Redirect } from 'react-router';
 
-export default class Login extends Component{
-  constructor(props){
-    super(props)
-    let loggedIn = false
-    this.state = {
-      username:"",
-      password:"",
-      loggedIn
-       
-    }
-    this.onChange= this.onChange.bind(this)
-    this.submitForm = this.onChange.bind(this)
+class LogIn extends Component{
+
+  state = {
+    username: "",
+    password: "",
+    errMsg: "",     
   }
 
-  url = "http://localhost:8080/api/user/login";
+  constructor(props){
+    super(props);
+    this.onChange= this.onChange.bind(this);
+    this.submitForm = this.submitForm.bind(this);
+  }
+
+  url = "https://movesws-teamc-baa.herokuapp.com/api/user/login";
 
   onChange(e){
-    this.setState({
-      [e.target.name]: e.target.value
-    }) 
-  }
-
-  componentDidMount() {
-   
+      this.setState({[e.target.name]: e.target.value});
   }
   
   submitForm(e){
+    e.preventDefault();
     const credentials = {
-      "userName": this.state.userName,
+      "userName": this.state.username,
       "password": this.state.password,
     };
-    
     fetch(this.url, {
       method: 'POST',
       mode: 'cors',
       headers: { 
-        // Currently in excess of what is needed; probably need only the first three
-        "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Methods": "GET, POST, DELETE, PUT, HEAD, OPTIONS",
-        "Access-Control-Allow-Credentials": "true",
-        "Access-Control-Allow-Headers": "Origin,Content-Type,Accept,Authorization,Expires,Pragma,x-custom-header"
+        "Content-Type": "application/json"
       },
       body: JSON.stringify(credentials)
     })
-    .then(response => {
-      if (response.ok) {
-        response.json()
-        .then((data) => {
-          localStorage.setItem('access_token', data.token);
-          return this.props.history.push("/token");
-        });
-      } else if (response.status >= 400 && response.status < 500) {
-        // Error caused by the requestor          
-        throw Error(`HTTP ${response.status}, ${response.statusText}`);
+    .then(response => response.json())
+    .then((data) => {
+      if (data.token) {
+        this.props.history.goBack();
+        this.props.changeLogInStatus(true, data.token);
       } else {
-        throw Error(`HTTP ${response.status}, ${response.statusText}`);
+        this.setState({errMsg: data.message});
       }
     })
     .catch(error => {
-      // Handles an error thrown above, as well as network general errors
       console.log("Caught an error:", error.message);
     });
   
   }
 
-  render(){
-    if(this.state.loggedIn){
-      return <Redirect to="/setting"/>
-    }
-
-    return(
-      
-      
-      <div className="container">
-      <form
-        className="form-signin"
-        onSubmit={this.onSubmit}
-      >
-        <h2 className="form-signin-heading">
-          Log In
-        </h2>
-
+  render() {
+    return this.props.isLoggedIn() ? <Redirect to='/'/> : (      
+      <div className="container-fluid">
+        <h2 className="form-signin-heading">Log In</h2>
+        <p className="errMsg">{this.state.errMsg}</p>
         <div className="form-group">
-          <input
-            type="text"
-            name="username"
-            className="form-control"
-            placeholder="Username"
-            value={this.state.username}
-            onChange={this.onChange}
-            autoFocus
-          />
-          <span className="help-block"></span>
+          <label htmlFor="username" className="control-label">Username</label>
+          <div className="col-md-12 col-xl-6">
+            <input type="text" name="username" id="username" className="form-control" value={this.state.username} ref={(i) => {this.input = i}} onChange={this.onChange} autoFocus />
+          </div>
         </div>
 
         <div className="form-group">
-          <input
-            type="password"
-            name="password"
-            className="form-control"
-            placeholder="Password"
-            value={this.state.password}
-            onChange={this.onChange}
-          />
-          <span className="help-block"></span>
+          <label htmlFor="password" className="control-label">Password</label>
+          <div className="col-md-12 col-xl-6">
+            <input type="password" name="password" id="password" className="form-control" value={this.state.password} ref={(i) => {this.input = i}} onChange={this.onChange} />
+          </div>
         </div>
 
-        <button
-          className="btn btn-lg btn-primary btn-block"
-          type="submit"
-        >
-          Log In
-        </button>
-      </form>
+        <div className="form-group">
+          <div className="col-md-offset-2 col-md-6">
+            <button className="btn btn-primary" onClick={this.submitForm} >Log In</button>
+          </div>
+        </div>
     </div>
     )
   }
 }
+
+export default withRouter(LogIn);

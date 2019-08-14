@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import ToggleLogInButton from './ToggleLogInButton';
 import './Navbar.css';
 
 class Navbar extends Component {
 
     render() {
-        var { dict, changeLanguage } = this.props;
+        var { dict, changeLanguage, changeLogInStatus, isLoggedIn } = this.props;
         return (
         <nav className="navbar navbar-expand-lg bg-dark navbar-dark" id="customNavbar">
             <button className="navbar-toggler btn-lg" type="button" data-toggle="collapse" data-target="#menuBar">
@@ -38,10 +39,7 @@ class Navbar extends Component {
                         <Link className="nav-link" to="#">{dict.contact}</Link>
                     </li>
                     <li className="nav-item" id="loginBtn">
-                        <Link className="navbar-brand nav-link btn-dark" to="/login">
-                            <FontAwesomeIcon icon={['fas', 'users']} style={{color: 'white'}} size="lg" /> &nbsp;
-                            {dict.login}
-                        </Link>
+                        <ToggleLogInButton dict={dict.toggleLog} changeLogInStatus={changeLogInStatus} isLoggedIn={isLoggedIn} />
                     </li>
                 </ul>
             </div>

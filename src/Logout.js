@@ -1,19 +1,30 @@
-import React, { Component} from 'react'
-import {Link} from 'react-router-dom'
+import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
+import { Redirect } from 'react-router';
 
-export default class Logout extends Component {
-    constructor(props){
-        super(props)
-            localStorage.removeItem("token") 
-    }
-    
-    render(){
-        return(
-            <div>
-                <h1>You Have been logged out</h1>
-                <Link to="/login">Login Again</Link>
-            </div>
+class LogOut extends Component {
 
-        )
+    state = {
+        second: 3
     }
+
+    componentDidMount() {
+        let interval = setInterval(() => {
+            this.setState({second: this.state.second - 1}, () => {
+                if (this.state.second === 0) {
+                    this.props.history.goBack();
+                    clearInterval(interval);
+                }
+            });
+        }, 1000);
+    }
+
+    render() {
+        return (
+            <h2>You are logged out! Redirecting to previous page in <span>{this.state.second}</span> second(s).</h2>
+        );
+    }
+
 }
+
+export default withRouter(LogOut);
