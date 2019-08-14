@@ -7,7 +7,7 @@ import Navbar from './Navbar';
 import NotFound from './NotFound';
 import Content from './Content';
 import EmergencyContact from './EmergencyContact';
-import LogIn from "./LogIn";
+import LogIn from './LogIn';
 import LogOut from './LogOut';
 import './App.css';
 
