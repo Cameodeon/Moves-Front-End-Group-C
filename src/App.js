@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
-import { Route, Switch, Link } from "react-router-dom";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Route, Switch } from "react-router-dom";
+import jwtDecode from 'jwt-decode';
 import Home from './Home';
+import Header from './Header';
 import Navbar from './Navbar';
 import NotFound from './NotFound';
 import Content from './Content';
 import EmergencyContact from './EmergencyContact';
 import LogIn from "./LogIn";
 import LogOut from './LogOut';
-import Activate from './Activate';
-import Setting from './Setting';
 import './App.css';
 
 class App extends Component {
@@ -19,7 +18,8 @@ class App extends Component {
     langFileDir: "",
     dict: {  },
     loaded: false,
-    isLoggedIn: localStorage.getItem('access_token') ? true : false
+    isLoggedIn: localStorage.getItem('access_token') ? true : false,
+    jwt_payload: { }
   };
 
   constructor(props) {
@@ -34,7 +34,6 @@ class App extends Component {
     }
     this.onChangeLanguage = this.onChangeLanguage.bind(this);
     this.onToggleLogIn = this.onToggleLogIn.bind(this);
-    this.isLoggedIn = this.isLoggedIn.bind(this);
   }
 
   componentDidMount() {
@@ -46,6 +45,11 @@ class App extends Component {
     })
     .then(res => res.json())
     .then(data => this.setState({dict: data, loaded: true}));
+    if (this.state.isLoggedIn) {
+      let token = localStorage.getItem('access_token');
+      var jwt_payload = jwtDecode(token);
+      this.setState({ jwt_payload });
+    }
   }
 
   onChangeLanguage(newLang) {
@@ -68,14 +72,13 @@ class App extends Component {
   onToggleLogIn(newStatus, optionalToken) {
     if (newStatus) {
       localStorage.setItem('access_token', optionalToken);
+      let token = localStorage.getItem('access_token');
+      var jwt_payload = jwtDecode(token);
+      this.setState({ jwt_payload });
     } else {
       localStorage.removeItem('access_token');
     }
     this.setState({isLoggedIn: newStatus});
-  }
-
-  isLoggedIn() {
-    return this.state.isLoggedIn;
   }
 
   render() {
@@ -83,13 +86,13 @@ class App extends Component {
     return !this.state.loaded ? null : (
       <div className="container-fluid">
         <Header dict={dict.header} />
-        <Navbar dict={dict.navbar} changeLanguage={this.onChangeLanguage} changeLogInStatus={this.onToggleLogIn} isLoggedIn={this.isLoggedIn} />
+        <Navbar dict={dict.navbar} changeLanguage={this.onChangeLanguage} changeLogInStatus={this.onToggleLogIn} jwtPayload={this.state.jwt_payload} />
         <hr />
         <Switch>
           <Route exact path='/' render={() => <Home dict={dict.home}/>} />
           <Route exact path='/content/:slug' render={props => <Content slug={props.match.params.slug}/>} />
           <Route exact path='/emergency' render={() => <EmergencyContact dict={dict.emergency} />} />
-          <Route exact path='/login' render={() => <LogIn changeLogInStatus={this.onToggleLogIn} isLoggedIn={this.isLoggedIn} />}/>
+          <Route exact path='/login' render={() => <LogIn changeLogInStatus={this.onToggleLogIn} />}/>
           <Route exact path='/logout' render={() => <LogOut />} />
           {/* <Route exact path="/logout" render={() => <Logout />}/>
           <Route exact path="/setting" render={() => <Setting/>}/>
@@ -104,19 +107,3 @@ class App extends Component {
 }
 
 export default App;
-
-const Header = (props) => {
-  var dict = props.dict;
-  return(
-    <header>
-      <div className="header text-center">
-        <h1 className="appTitle">MO:VES</h1>
-        <p className="appDescription">{dict.description}</p>
-        <Link id="emergencyButton" className="btn btn-danger" to="/emergency">
-          <FontAwesomeIcon icon={['fas', 'phone-alt']} style={{color: 'white'}} size="lg" /> &nbsp;
-          {dict.call}
-        </Link>
-      </div>
-    </header>
-  );
-}

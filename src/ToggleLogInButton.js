@@ -9,29 +9,28 @@ class ToggleLogInButton extends Component {
         this.onLogOutButtonClick = this.onLogOutButtonClick.bind(this);
     }
 
-    
-
     onLogOutButtonClick() {
         this.props.changeLogInStatus(false);
+    }
+
+    isLoggedIn() {
+        return localStorage.getItem('access_token') ? true : false;
     }
 
     render(){
         var { dict } = this.props;
         return(
             <div>
-                {!this.props.isLoggedIn() ?
+                {!this.isLoggedIn() ?
                 <Link className="navbar-brand nav-link btn-dark" to="/login">
                     <FontAwesomeIcon icon={['fas', 'users']} style={{color: 'white'}} size="lg" /> &nbsp;
                     {dict.login}
                 </Link>
                 :
-                <div>
-                    <Link role="button" onClick={this.onLogOutButtonClick} className="navbar-brand nav-link btn-dark" to="/logout">
-                        <FontAwesomeIcon icon={['fas', 'sign-out-alt']} style={{color: 'white'}} size="lg" /> &nbsp;
-                        {dict.logout}
-                    </Link>
-                    
-                </div>
+                <Link role="button" onClick={this.onLogOutButtonClick} className="navbar-brand nav-link btn-dark" to="/logout">
+                    <FontAwesomeIcon icon={['fas', 'sign-out-alt']} style={{color: 'white'}} size="lg" /> &nbsp;
+                    {dict.logout}
+                </Link>
                 }
             </div>
         )

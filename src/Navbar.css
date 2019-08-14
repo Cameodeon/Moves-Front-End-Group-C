@@ -1,9 +1,9 @@
 .navbar-button {
-height: 2em;
+    height: 2em;
 }
 
 .nav-link.btn {
-display: inline;
+    display: inline;
 }
 
 .navbar-brand  {
@@ -18,7 +18,29 @@ border-left: 0.1px solid black;
     border-right: 1px solid white !important;
 }
 
-#loginBtn, #logoutBtn {
+#toggleLogBtn {
     border-left: 1px solid white !important;
+}
+
+.greetingMsg {
+    border-left: 1px solid white;
+    padding-left: 0.5em;
+}
+
+.greetingMsgText {
+    margin-bottom: 0;
+    color: white;
+    font-size: 16pt;
+    height: 100%;
+    padding-top: calc(3.5% - 4px);
+}
+
+.greetMsgTextSm {
+    font-size: 16pt;
+    margin-top: 2%;
+}
+
+.fullName {
+    font-weight: bold;
 }
   
