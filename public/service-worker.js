@@ -46,7 +46,7 @@ function readTable(table, key) {
 }
 
 workbox.routing.registerRoute(
-    new RegExp('http://localhost:8080/api/textContent/.*$'),
+    new RegExp('https://moves-teamc-baa.herokuapp.com/api/textContent/.*$'),
     ({ url, event }) => {
         console.log(url.pathname);
         return fetch(event.request)
