@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { Redirect } from 'react-router';
+import './LogOut.css'
 
 class LogOut extends Component {
 
@@ -21,7 +22,10 @@ class LogOut extends Component {
 
     render() {
         return (
-            <h2>You are logged out! Redirecting to previous page in <span>{this.state.second}</span> second(s).</h2>
+            <div className="container-fluid">
+                <h2>You are logged out!</h2>
+                <p>Redirecting to previous page in <span className="timerSecond">{this.state.second}</span> second(s).</p>
+            </div>
         );
     }
 

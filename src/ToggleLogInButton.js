@@ -9,6 +9,8 @@ class ToggleLogInButton extends Component {
         this.onLogOutButtonClick = this.onLogOutButtonClick.bind(this);
     }
 
+    
+
     onLogOutButtonClick() {
         this.props.changeLogInStatus(false);
     }
@@ -23,10 +25,13 @@ class ToggleLogInButton extends Component {
                     {dict.login}
                 </Link>
                 :
-                <Link role="button" onClick={this.onLogOutButtonClick} className="navbar-brand nav-link btn-dark" to="/logout">
-                    <FontAwesomeIcon icon={['fas', 'sign-out-alt']} style={{color: 'white'}} size="lg" /> &nbsp;
-                    {dict.logout}
-                </Link>
+                <div>
+                    <Link role="button" onClick={this.onLogOutButtonClick} className="navbar-brand nav-link btn-dark" to="/logout">
+                        <FontAwesomeIcon icon={['fas', 'sign-out-alt']} style={{color: 'white'}} size="lg" /> &nbsp;
+                        {dict.logout}
+                    </Link>
+                    
+                </div>
                 }
             </div>
         )

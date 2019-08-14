@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Switch, Link, withRouter } from "react-router-dom";
+import { Route, Switch, Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Home from './Home';
 import Navbar from './Navbar';
