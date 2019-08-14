@@ -1,0 +1,24 @@
+.navbar-button {
+height: 2em;
+}
+
+.nav-link.btn {
+display: inline;
+}
+
+.navbar-brand  {
+    margin-right: 0 !important;
+}
+
+/* .nav-item:not(.first-nav-item) {
+border-left: 0.1px solid black;
+} */
+
+#homeBtn {
+    border-right: 1px solid white !important;
+}
+
+#loginBtn, #logoutBtn {
+    border-left: 1px solid white !important;
+}
+  

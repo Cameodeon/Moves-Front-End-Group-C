@@ -1,9 +1,15 @@
 import React, { Component } from 'react';
 import { Route, Switch, Link } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Home from './Home';
+import Navbar from './Navbar';
 import NotFound from './NotFound';
 import Content from './Content';
 import EmergencyContact from './EmergencyContact';
+import LogIn from "./LogIn";
+import LogOut from './LogOut';
+import Activate from './Activate';
+import Setting from './Setting';
 import './App.css';
 
 class App extends Component {
@@ -12,7 +18,8 @@ class App extends Component {
     language: localStorage.getItem("lang"),
     langFileDir: "",
     dict: {  },
-    loaded: false
+    loaded: false,
+    isLoggedIn: localStorage.getItem('access_token') ? true : false
   };
 
   constructor(props) {
@@ -26,6 +33,8 @@ class App extends Component {
       this.state.langFileDir = `/languageUI/${localStorage.getItem("lang")}.json`;
     }
     this.onChangeLanguage = this.onChangeLanguage.bind(this);
+    this.onToggleLogIn = this.onToggleLogIn.bind(this);
+    this.isLoggedIn = this.isLoggedIn.bind(this);
   }
 
   componentDidMount() {
@@ -56,17 +65,35 @@ class App extends Component {
     });
   }
 
+  onToggleLogIn(newStatus, optionalToken) {
+    if (newStatus) {
+      localStorage.setItem('access_token', optionalToken);
+    } else {
+      localStorage.removeItem('access_token');
+    }
+    this.setState({isLoggedIn: newStatus});
+  }
+
+  isLoggedIn() {
+    return this.state.isLoggedIn;
+  }
+
   render() {
     var dict = this.state.dict;
     return !this.state.loaded ? null : (
       <div className="container-fluid">
         <Header dict={dict.header} />
-        <Navbar dict={dict.navbar} changeLanguage={this.onChangeLanguage} />
+        <Navbar dict={dict.navbar} changeLanguage={this.onChangeLanguage} changeLogInStatus={this.onToggleLogIn} isLoggedIn={this.isLoggedIn} />
         <hr />
         <Switch>
           <Route exact path='/' render={() => <Home dict={dict.home}/>} />
           <Route exact path='/content/:slug' render={props => <Content slug={props.match.params.slug}/>} />
           <Route exact path='/emergency' render={() => <EmergencyContact dict={dict.emergency} />} />
+          <Route exact path='/login' render={() => <LogIn changeLogInStatus={this.onToggleLogIn} isLoggedIn={this.isLoggedIn} />}/>
+          <Route exact path='/logout' render={() => <LogOut />} />
+          {/* <Route exact path="/logout" render={() => <Logout />}/>
+          <Route exact path="/setting" render={() => <Setting/>}/>
+          <Route exact path="/activate" render={() => <Activate/>}/> */}
           <Route render={() => <NotFound dict={dict.notfound} />} />
         </Switch>
         <hr />
@@ -85,67 +112,11 @@ const Header = (props) => {
       <div className="header text-center">
         <h1 className="appTitle">MO:VES</h1>
         <p className="appDescription">{dict.description}</p>
-        <Link id="emergencyButton" className="btn btn-danger" to="/emergency">{dict.call}</Link>
+        <Link id="emergencyButton" className="btn btn-danger" to="/emergency">
+          <FontAwesomeIcon icon={['fas', 'phone-alt']} style={{color: 'white'}} size="lg" /> &nbsp;
+          {dict.call}
+        </Link>
       </div>
     </header>
   );
-}
-
-const Navbar = (props) => {
-    var { dict, changeLanguage } = props;
-    return (
-      <nav className="navbar navbar-expand-lg bg-dark navbar-dark" id="customNavbar">
-        <button className="navbar-toggler btn-lg" type="button" data-toggle="collapse" data-target="#menuBar">
-          <span className="navbar-toggler-icon"></span>
-        </button>
-        
-        <button className="navbar-toggler navbar-button" type="button" data-toggle="collapse" data-target="#languageSelector">
-          {dict.selectLang}
-        </button>
-
-        <div className="collapse navbar-collapse" id="menuBar" data-parent="#customNavbar">
-          <ul className="navbar-nav text-center">
-            <li className="nav-item">
-              <Link className="navbar-brand nav-link" to="/">{dict.home}</Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="#">{dict.help}</Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="#">{dict.info}</Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="#">{dict.about}</Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="#">{dict.contact}</Link>
-            </li>
-          </ul>
-        </div>
-
-        <div className="collapse navbar-collapse" id="languageSelector" data-parent="#customNavbar">
-          <ul className="navbar-nav ml-auto text-center">
-            <li className="nav-item">
-              <button className="nav-link btn" onClick={() => changeLanguage("en-CA")}>
-                <span className="flag-icon flag-icon-ca"></span> &nbsp;
-                English (Canada)
-              </button>
-            </li>
-            <li className="nav-item">
-              <button className="nav-link btn" onClick={() => changeLanguage("vn")}>
-                <span className="flag-icon flag-icon-vn"></span> &nbsp;
-                Tiếng Việt
-              </button>
-            </li>
-            {/* <li className="nav-item">
-              <Link className="nav-link" to="#">{dict.danish}</Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="#">{dict.french}</Link>
-            </li> */}
-          </ul>
-        </div>
-      </nav>
-    );
-
 }
