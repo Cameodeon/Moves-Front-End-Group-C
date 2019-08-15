@@ -27,14 +27,11 @@ class Navbar extends Component {
                 <div className="collapse navbar-collapse" id="menuBar" data-parent="#customNavbar">
                     <ul className="navbar-nav text-center">
                         <li className="nav-item first-nav-item" id="homeBtn">
-                            <Link className="navbar-brand nav-link btn-dark" to="/">
+                            <Link className="nav-link btn-dark" to="/">
                                 <FontAwesomeIcon icon={['fas', 'home']} style={{color: 'white'}} size="lg" /> &nbsp;
                                 {dict.home}
                             </Link>
                         </li>
-                        {/* <li className="nav-item">
-                            <Link className="nav-link" to="#">{dict.help}</Link>
-                        </li>*/}
                         <li className="nav-item">
                             <a className="nav-link" href="https://cfvaa.com" target="_blank" rel="noopener noreferrer">{dict.icva}</a>
                         </li>
