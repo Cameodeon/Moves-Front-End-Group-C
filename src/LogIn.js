@@ -66,7 +66,7 @@ class LogIn extends Component{
         </div>
 
         <div className="form-group">
-          <label htmlFor="password" className="control-label">{dict.password}}</label>
+          <label htmlFor="password" className="control-label">{dict.password}</label>
           <div className="col-md-12 col-xl-6">
             <input type="password" name="password" id="password" className="form-control" value={this.state.password} ref={(i) => {this.input = i}} onChange={this.onChange} />
           </div>
@@ -74,7 +74,7 @@ class LogIn extends Component{
 
         <div className="form-group">
           <div className="col-md-offset-2 col-md-12 col-xl-6">
-            <button className="btn btn-primary btn-block" onClick={this.submitForm} >Log In</button>
+            <button className="btn btn-primary btn-block" onClick={this.submitForm}>{dict.login}</button>
           </div>
         </div>
     </div>

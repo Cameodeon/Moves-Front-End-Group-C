@@ -8,7 +8,7 @@
       "type": "image/png"
     }
   ],
-  "start_url": "http://localhost:8080",
+  "start_url": "https://moves-teamc-baa.herokuapp.com",
   "display": "standalone",
   "theme_color": "#ff0011",
   "background_color": "#ffffff"

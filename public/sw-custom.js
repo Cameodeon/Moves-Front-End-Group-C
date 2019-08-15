@@ -4,7 +4,8 @@ function createDB() {
     let openRequest = indexedDB.open("movesDB", 1);
     openRequest.onupgradeneeded = function(event){
         let db = event.target.result;
-        let store = db.createObjectStore("textContent");
+        db.createObjectStore("textContent");
+        db.createObjectStore("phoneNumber");
     }
 }
 
@@ -46,7 +47,7 @@ function readTable(table, key) {
 }
 
 workbox.routing.registerRoute(
-    new RegExp('http://localhost:8080/api/textContent/.*$'),
+    new RegExp('https://movessw-teamc-baa.herokuapp.com/api/phoneNumber/.*$'),
     ({ url, event }) => {
         console.log(url.pathname);
         return fetch(event.request)
@@ -69,7 +70,7 @@ workbox.routing.registerRoute(
 );
 
 workbox.routing.registerRoute(
-    new RegExp('https://moves-teamc-baa.herokuapp.com/api/phoneNumber/.*$'),
+    new RegExp('https://movessw-teamc-baa.herokuapp.com/api/phoneNumber/.*$'),
     ({ url, event }) => {
         console.log(url.pathname);
         return fetch(event.request)
