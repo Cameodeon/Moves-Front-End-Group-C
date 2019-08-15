@@ -25,6 +25,21 @@ class Content extends Component {
     }));
   }
 
+  componentDidUpdate(prevProps) {
+    if (this.props.slug !== prevProps.slug) {
+      fetch(this.url + this.props.slug)
+      .then(response => (response.status !== 200 ? Promise.reject("Bad Response") : response.json()))
+      .then(data => this.setState({
+        textContent: data.data[0].content,
+        title: data.data[0].title
+      }))
+      .catch(err =>this.setState({ 
+        textContent: "<p>Or probably you are offline.</p>",
+        title: "Content Comming Soon..."
+      }));
+    }
+  }
+
   render() {
     return (
       <div className="container-fluid">
