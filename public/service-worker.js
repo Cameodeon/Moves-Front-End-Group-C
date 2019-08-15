@@ -167,7 +167,7 @@ workbox.precaching.precacheAndRoute([
   },
   {
     "url": "manifest.json",
-    "revision": "552d213f34554174e7751f8a70ee2698"
+    "revision": "c9109c478ca95e49d44c1d33c3ebc1d4"
   },
   {
     "url": "precache-manifest.731063edb3cbdbdbeba4b47a15148f49.js",
@@ -227,7 +227,7 @@ workbox.precaching.precacheAndRoute([
   },
   {
     "url": "sw-custom.js",
-    "revision": "81a1896b45859256474ad45ba2b2b153"
+    "revision": "929bd4c094404ecc0cc0ba410cf0ea0b"
   }
 ]);
 
