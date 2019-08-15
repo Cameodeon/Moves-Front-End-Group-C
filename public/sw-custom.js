@@ -18,14 +18,15 @@ addEventListener('install', function (event) {
 });
 
 function preCacheDB() {
-
-    return new Promise((resolve, reject) => {
         let languages = ["en-CA", "fr"];
 
         languages.forEach((lang) => {
 
             fetch(`${DOMAIN}/api/textContent/${lang}/thiefCases`)
-                .then((item) => { return syncItem(item, "textContent", item.links[0].href) })
+                .then((item) => { 
+                    console.log(item);
+                    return syncItem(item, "textContent", item.links[0].href) 
+                })
                 .then(() => {
                     return fetch(`${DOMAIN}/api/textContent/${lang}/contact`)
                 })
@@ -54,14 +55,10 @@ function preCacheDB() {
                     return fetch(`${DOMAIN}/api/textContent/${lang}/safetyTips`)
                 })
                 .then(item => { return syncItem(item, "textContent", item.links[0].href) })
-                .then(() => {
-                    resolve();
-                })
                 .catch((err) => {
                     reject("[Service Worker] Could not precache database: " + err);
                 })
         });
-    });
 }
 
 
