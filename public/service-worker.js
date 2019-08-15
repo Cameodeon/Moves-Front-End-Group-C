@@ -1,6 +1,6 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
-let DOMAIN = 'https://movessw-teamc-baa.herokuapp.com';
+let DOMAIN = 'https://movesws-teamc-baa.herokuapp.com';
 
 function createDB() {
     let openRequest = indexedDB.open("movesDB", 1);
@@ -97,7 +97,7 @@ workbox.routing.registerRoute(
 workbox.precaching.precacheAndRoute([
   {
     "url": "asset-manifest.json",
-    "revision": "f4edb2d4d621c48abe351048a41d60b5"
+    "revision": "34ecbf3a3fe0eb2a9f6648cb96e8bda3"
   },
   {
     "url": "favicon.png",
@@ -157,7 +157,7 @@ workbox.precaching.precacheAndRoute([
   },
   {
     "url": "index.html",
-    "revision": "aea9fcb58868809e87a992f2ec0eec9c"
+    "revision": "2a8de2c3446af21e105facbb3e004f31"
   },
   {
     "url": "languageUI/en-CA.json",
@@ -172,8 +172,8 @@ workbox.precaching.precacheAndRoute([
     "revision": "c9109c478ca95e49d44c1d33c3ebc1d4"
   },
   {
-    "url": "precache-manifest.4c0a6b829d93b8d8bf4753b199d0ff2a.js",
-    "revision": "4c0a6b829d93b8d8bf4753b199d0ff2a"
+    "url": "precache-manifest.0331c351719dd6ec025306190240252b.js",
+    "revision": "0331c351719dd6ec025306190240252b"
   },
   {
     "url": "static/css/2.a65d5813.chunk.css",
@@ -184,12 +184,12 @@ workbox.precaching.precacheAndRoute([
     "revision": "610c448c10e4f86bac9da6fb1f13caaf"
   },
   {
-    "url": "static/js/2.fff276b3.chunk.js",
-    "revision": "0e142cceca2ecde6e10e39bf888c868b"
+    "url": "static/js/2.277c5d63.chunk.js",
+    "revision": "bb8d7119818434fcf78f84f8c10bb805"
   },
   {
-    "url": "static/js/main.7928baa3.chunk.js",
-    "revision": "02776f578dfe0b9d0f5e1fa852513aaf"
+    "url": "static/js/main.95ff122c.chunk.js",
+    "revision": "40c741c551d0b9a92e0fddb1894e7935"
   },
   {
     "url": "static/js/runtime~main.a8a9905a.js",
@@ -229,7 +229,7 @@ workbox.precaching.precacheAndRoute([
   },
   {
     "url": "sw-custom.js",
-    "revision": "e2da85d072437533e8c27e2aca791a31"
+    "revision": "0dbbab089faef33bdb1dd18151001c4e"
   }
 ]);
 
