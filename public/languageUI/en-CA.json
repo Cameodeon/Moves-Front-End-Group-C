@@ -44,5 +44,25 @@
         "header": "You're logged out!",
         "messagePart1": "Redirecting to previous page in",
         "messagePart2": "second(s)."
+    },
+    "location":{
+        "importantPlaces" : "List of important places",
+        "findYourself" : "Find Yourself",
+        "name" : "Name",
+        "address" : "Address",
+        "latitude" : "Latitude",
+        "longitude" : "Longitude",
+        "viewOnMap" : "View on Map",
+        "howToUse" : "How to use this app to access an offline map of Tangier through your mobile device",
+        "installTheApp" : "Install the Google Maps app.",
+        "openTheApp" : "Open the app. Open the app's settings by pressing the ≡ button in the top-left corner of your screen.",
+        "pressOfflineMaps" : "Press the Offline Maps button within the settings menu; its icon looks like a cloud.",
+        "pressCustomMap" : "Press the Custom Map button.",
+        "resizeBoundaries": "Finally, resize the boundaries of the map to cover the city of Tangier, and click the Download button at the bottom of the screen.",
+        "step1": "Step 1",
+        "step2": "Step 2",
+        "step3": "Step 3",
+        "step4": "Step 4",
+        "step5": "Step 5"
     }
 }

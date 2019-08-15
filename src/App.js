@@ -9,6 +9,7 @@ import EmergencyContact from './EmergencyContact';
 import LogIn from './LogIn';
 import LogOut from './LogOut';
 import Auth from './Auth';
+import TutorialOfflineMap from './Geolocation';
 import './App.css';
 
 class App extends Component {
@@ -85,6 +86,7 @@ class App extends Component {
           <PrivateRoute exact path='/emergency' component={() => <EmergencyContact dict={dict.emergency} />} />
           <Route exact path='/login' render={() => <LogIn dict={dict.login} toggleLogIn={this.onToggleLogIn} />}/>
           <Route exact path='/logout' render={() => <LogOut dict={dict.logout} />} />
+          <Route exact path='/location' render={() => <TutorialOfflineMap dict={dict.location} /> } />
           <Route render={() => <NotFound dict={dict.notfound} />} />
         </Switch>
         <hr />

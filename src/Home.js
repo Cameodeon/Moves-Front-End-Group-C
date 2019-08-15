@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import MenuItem from './MenuItem';
 
+
 class Home extends Component {
 
     state = {
@@ -23,7 +24,7 @@ class Home extends Component {
                         </Link>
                     </div>
                     <div className="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3">
-                        <Link to="/content/location">
+                        <Link to="/location">
                             <MenuItem image="/image/menuIcon/location.png" title={dict.location} />
                         </Link>
                     </div>

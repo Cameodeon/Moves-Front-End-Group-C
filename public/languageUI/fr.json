@@ -44,5 +44,25 @@
         "header": "Vous êtes déconnecté!",
         "messagePart1": "Vous serez redirigé à la page précédente en",
         "messagePart2": "seconde(s)."
+    },
+    "location":{
+        "importantPlaces" : "Liste de lieux importants",
+        "findYourself" : "Votre emplacement",
+        "name" : "Nom",
+        "address" : "Adresse",
+        "latitude" : "Latitude",
+        "longitude" : "Longitude",
+        "viewOnMap" : "Afficher sur la carte",
+        "howToUse" : "Comment utiliser cette application pour accéder une carte de Tanger hors ligne",
+        "installTheApp" : "Installez l'application Google Maps",
+        "openTheApp" : "Ouvrez l'application. Ouvrez les paramètres de l'application en appuyant sur le bouton « ≡ » dans le coin supérieur gauche de votre écran.",
+        "pressOfflineMaps" : "Appuyez sur le bouton « Cartes hors ligne » dans le menu des paramètres. Son icône ressemble à un nuage.",
+        "pressCustomMap" : "Appuyez sur le bouton « Carte personnalisée »",
+        "resizeBoundaries": "Enfin, redimensionnez les limites de la carte pour couvrir la ville de Tanger, puis cliquez sur le bouton « Télécharger » en bas de l'écran.",
+        "step1": "Étape 1",
+        "step2": "Étape 2",
+        "step3": "Étape 3",
+        "step4": "Étape 4",
+        "step5": "Étape 5"
     }
 }
