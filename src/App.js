@@ -81,7 +81,7 @@ class App extends Component {
         <hr />
         <Switch>
           <Route exact path='/' render={() => <Home dict={dict.home}/>} />
-          <Route path='/content/:slug' render={props => <Content slug={props.match.params.slug}/>} />
+          <Route exact path='/content/:slug' render={props => <Content slug={props.match.params.slug}/>} />
           <PrivateRoute exact path='/emergency' component={() => <EmergencyContact dict={dict.emergency} />} />
           <Route exact path='/login' render={() => <LogIn dict={dict.login} toggleLogIn={this.onToggleLogIn} />}/>
           <Route exact path='/logout' render={() => <LogOut dict={dict.logout} />} />

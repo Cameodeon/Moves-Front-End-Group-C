@@ -97,7 +97,7 @@ workbox.routing.registerRoute(
 workbox.precaching.precacheAndRoute([
   {
     "url": "asset-manifest.json",
-    "revision": "34ecbf3a3fe0eb2a9f6648cb96e8bda3"
+    "revision": "fe7d5fa42d434212caa6a1018e6cbd17"
   },
   {
     "url": "favicon.png",
@@ -157,7 +157,7 @@ workbox.precaching.precacheAndRoute([
   },
   {
     "url": "index.html",
-    "revision": "2a8de2c3446af21e105facbb3e004f31"
+    "revision": "68601ec95986064a899226e03eae9f05"
   },
   {
     "url": "languageUI/en-CA.json",
@@ -165,31 +165,31 @@ workbox.precaching.precacheAndRoute([
   },
   {
     "url": "languageUI/fr.json",
-    "revision": "e012afa53545be88116ff688827b8c0d"
+    "revision": "897dc2efe8e1e81c0f992bca940b66d2"
   },
   {
     "url": "manifest.json",
     "revision": "c9109c478ca95e49d44c1d33c3ebc1d4"
   },
   {
-    "url": "precache-manifest.0331c351719dd6ec025306190240252b.js",
-    "revision": "0331c351719dd6ec025306190240252b"
+    "url": "precache-manifest.3703ffb8fb55711789dad5d151ee1ae3.js",
+    "revision": "3703ffb8fb55711789dad5d151ee1ae3"
   },
   {
     "url": "static/css/2.a65d5813.chunk.css",
     "revision": "0f02bb75eea16478879545e864eab4da"
   },
   {
-    "url": "static/css/main.d9144c21.chunk.css",
-    "revision": "610c448c10e4f86bac9da6fb1f13caaf"
+    "url": "static/css/main.c7830634.chunk.css",
+    "revision": "1c93364533491e62c416eade270ad837"
   },
   {
-    "url": "static/js/2.277c5d63.chunk.js",
-    "revision": "bb8d7119818434fcf78f84f8c10bb805"
+    "url": "static/js/2.96de8dbe.chunk.js",
+    "revision": "1b9c7d522535ec8b4e9c927cc5cbfa62"
   },
   {
-    "url": "static/js/main.95ff122c.chunk.js",
-    "revision": "40c741c551d0b9a92e0fddb1894e7935"
+    "url": "static/js/main.99f7e28c.chunk.js",
+    "revision": "551114d7118f4090fc287805425cc7af"
   },
   {
     "url": "static/js/runtime~main.a8a9905a.js",
