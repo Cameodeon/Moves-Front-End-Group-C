@@ -7,9 +7,7 @@
         "overnightStay": "Overnight Stay",
         "medicalNeed" : "Medical Need",
         "safetyTips" : "Safety Tips",
-        "faqPage" : "FAQ",
-        "contactUs" : "Contact Us",
-        "aboutUs" : "About Us"
+        "faqPage" : "FAQ"
     },
     "header": {
         "description": "The Moroccan Volunteer Emergency Service",

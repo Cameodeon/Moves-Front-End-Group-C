@@ -4,7 +4,10 @@
         "location": "Emplacement",
         "thiefCases":  "Cas de vol",
         "languageBarrier": "Barrières linguistiques",
-        "overnightStay": "Nuitées"
+        "overnightStay": "Nuitées",
+        "medicalNeed" : "Besoins médicaux",
+        "safetyTips" : "Conseils de sécurité",
+        "faqPage" : "FAQ"
     },
     "header": {
         "description": "Service d'urgence pour les volontaires au Maroc",
