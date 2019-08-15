@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { Redirect } from 'react-router';
+import Auth from './Auth';
 
 class LogIn extends Component{
 
@@ -21,10 +22,6 @@ class LogIn extends Component{
   onChange(e){
       this.setState({[e.target.name]: e.target.value});
   }
-
-  isLoggedIn() {
-    return localStorage.getItem('access_token');
-  }
   
   submitForm(e){
     e.preventDefault();
@@ -44,7 +41,7 @@ class LogIn extends Component{
     .then((data) => {
       if (data.token) {
         this.props.history.goBack();
-        this.props.changeLogInStatus(true, data.token);
+        this.props.toggleLogIn(true, data.token);
       } else {
         this.setState({errMsg: data.message});
       }
@@ -56,7 +53,7 @@ class LogIn extends Component{
   }
 
   render() {
-    return this.isLoggedIn() ? <Redirect to='/'/> : (      
+    return Auth.isAuth() ? <Redirect to='/'/> : (      
       <div className="container-fluid">
         <h2 className="form-signin-heading">Log In</h2>
         <p className="errMsg">{this.state.errMsg}</p>

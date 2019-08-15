@@ -6,6 +6,10 @@
     display: inline;
 }
 
+.nav-link {
+    font-size: 14pt;
+}
+
 .navbar-brand  {
     margin-right: 0 !important;
 }

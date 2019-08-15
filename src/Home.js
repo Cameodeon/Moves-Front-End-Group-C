@@ -42,6 +42,21 @@ class Home extends Component {
                             <MenuItem image="/image/menuIcon/sleeping.png" title={dict.overnightStay} />
                         </Link>
                     </div>
+                    <div className="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3">
+                        <Link to="/content/medicalNeed">
+                            <MenuItem image="/image/menuIcon/medicalNeed.png" title={dict.medicalNeed} />
+                        </Link>
+                    </div>
+                    <div className="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3">
+                        <Link to="/content/safetyTips">
+                            <MenuItem image="/image/menuIcon/charity.png" title={dict.safetyTips} />
+                        </Link>
+                    </div>
+                    <div className="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-3">
+                        <Link to="/content/faq">
+                            <MenuItem image="/image/menuIcon/help.png" title={dict.faqPage} />
+                        </Link>
+                    </div>
                 </div>
             </div>
         );

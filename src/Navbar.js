@@ -1,17 +1,14 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Auth from './Auth';
 import ToggleLogInButton from './ToggleLogInButton';
 import './Navbar.css';
 
 class Navbar extends Component {
 
-    isLoggedIn() {
-        return localStorage.getItem('access_token') ? true : false;
-    }
-
     render() {
-        var { dict, changeLanguage, changeLogInStatus } = this.props;
+        var { dict, changeLanguage, toggleLogIn } = this.props;
         return (
         <div>
             <nav className="navbar navbar-expand-lg bg-dark navbar-dark" id="customNavbar">
@@ -31,25 +28,25 @@ class Navbar extends Component {
                                 {dict.home}
                             </Link>
                         </li>
-                        <li className="nav-item">
+                        {/* <li className="nav-item">
                             <Link className="nav-link" to="#">{dict.help}</Link>
+                        </li>*/}
+                        <li className="nav-item">
+                            <a className="nav-link" href="https://cfvaa.com" target="_blank" rel="noopener noreferrer">{dict.icva}</a>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="#">{dict.info}</Link>
+                            <Link className="nav-link" to="/content/about">{dict.about}</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="#">{dict.about}</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link className="nav-link" to="#">{dict.contact}</Link>
+                            <Link className="nav-link" to="/content/contact">{dict.contact}</Link>
                         </li>
                         <li className="nav-item" id="toggleLogBtn">
-                            <ToggleLogInButton dict={dict.toggleLog} changeLogInStatus={changeLogInStatus}/>
+                            <ToggleLogInButton dict={dict.toggleLog} toggleLogIn={toggleLogIn} />
                         </li>
                         {
-                            this.isLoggedIn() ?
+                            Auth.isAuth() ?
                                 <li className="nav-item d-none d-xl-inline greetingMsg">
-                                    <p className="greetingMsgText">Hello, <span className="fullName">{this.props.jwtPayload.fullName}</span> !</p>
+                                    <p className="greetingMsgText">Hello, <span className="fullName">{Auth.getUser().fullName}</span>!</p>
                                 </li>
                             :
                                 null
@@ -61,28 +58,22 @@ class Navbar extends Component {
                     <ul className="navbar-nav ml-auto text-center">
                         <li className="nav-item first-nav-item">
                             <button className="nav-link btn" onClick={() => changeLanguage("en-CA")}>
-                                <span className="flag-icon flag-icon-ca"></span> &nbsp;
-                                English (Canada)
+                                <span className="flag-icon flag-icon-gb"></span> &nbsp;
+                                English
                             </button>
                         </li>
                         <li className="nav-item">
-                            <button className="nav-link btn" onClick={() => changeLanguage("vn")}>
-                                <span className="flag-icon flag-icon-vn"></span> &nbsp;
-                                Tiếng Việt
+                            <button className="nav-link btn" onClick={() => changeLanguage("fr")}>
+                                <span className="flag-icon flag-icon-fr"></span> &nbsp;
+                                Français
                             </button>
                         </li>
-                        {/* <li className="nav-item">
-                        <Link className="nav-link" to="#">{dict.danish}</Link>
-                        </li>
-                        <li className="nav-item">
-                        <Link className="nav-link" to="#">{dict.french}</Link>
-                        </li> */}
                     </ul>
                 </div>
             </nav>
             {
-                this.isLoggedIn() ?
-                    <p className="d-xl-none text-center greetMsgTextSm">Hello, <span className="fullName">{this.props.jwtPayload.fullName}</span> !</p>
+                Auth.isAuth() ?
+                    <p className="d-xl-none text-center greetMsgTextSm">Hello, <span className="fullName">{Auth.getUser().fullName}</span>!</p>
                 :
                     null
             }

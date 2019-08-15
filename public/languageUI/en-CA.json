@@ -4,7 +4,12 @@
         "location": "Location",
         "thiefCases":  "Theft Cases",
         "languageBarrier": "Language Barrier",
-        "overnightStay": "Overnight Stay"
+        "overnightStay": "Overnight Stay",
+        "medicalNeed" : "Medical Need",
+        "safetyTips" : "Safety Tips",
+        "faqPage" : "FAQ",
+        "contactUs" : "Contact Us",
+        "aboutUs" : "About Us"
     },
     "header": {
         "description": "The Moroccan Volunteer Emergency Service",
@@ -13,9 +18,9 @@
     "navbar": {
         "home": "Home",
         "help": "Need Help?",
-        "info": "Further Information",
-        "about": "About",
-        "contact": "Contact",
+        "icva": "ICVA Site",
+        "about": "About MO:VES",
+        "contact": "Contact Us!",
         "toggleLog": {
             "login": "Log In",
             "logout": "Log Out"

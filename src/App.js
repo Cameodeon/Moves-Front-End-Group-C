@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Switch } from "react-router-dom";
-import jwtDecode from 'jwt-decode';
+import { Route, Switch, Redirect } from "react-router-dom";
 import Home from './Home';
 import Header from './Header';
 import Navbar from './Navbar';
@@ -9,6 +8,7 @@ import Content from './Content';
 import EmergencyContact from './EmergencyContact';
 import LogIn from './LogIn';
 import LogOut from './LogOut';
+import Auth from './Auth';
 import './App.css';
 
 class App extends Component {
@@ -18,8 +18,7 @@ class App extends Component {
     langFileDir: "",
     dict: {  },
     loaded: false,
-    isLoggedIn: localStorage.getItem('access_token') ? true : false,
-    jwt_payload: { }
+    isLoggedIn: Auth.isAuth()
   };
 
   constructor(props) {
@@ -45,11 +44,15 @@ class App extends Component {
     })
     .then(res => res.json())
     .then(data => this.setState({dict: data, loaded: true}));
-    if (this.state.isLoggedIn) {
-      let token = localStorage.getItem('access_token');
-      var jwt_payload = jwtDecode(token);
-      this.setState({ jwt_payload });
+  }
+
+  onToggleLogIn(newStatus, optionalToken) {
+    if (newStatus) {
+      Auth.login(optionalToken);
+    } else {
+      Auth.signout();
     }
+    this.setState({isLoggedIn: newStatus});
   }
 
   onChangeLanguage(newLang) {
@@ -69,34 +72,19 @@ class App extends Component {
     });
   }
 
-  onToggleLogIn(newStatus, optionalToken) {
-    if (newStatus) {
-      localStorage.setItem('access_token', optionalToken);
-      let token = localStorage.getItem('access_token');
-      var jwt_payload = jwtDecode(token);
-      this.setState({ jwt_payload });
-    } else {
-      localStorage.removeItem('access_token');
-    }
-    this.setState({isLoggedIn: newStatus});
-  }
-
   render() {
     var dict = this.state.dict;
     return !this.state.loaded ? null : (
       <div className="container-fluid">
         <Header dict={dict.header} />
-        <Navbar dict={dict.navbar} changeLanguage={this.onChangeLanguage} changeLogInStatus={this.onToggleLogIn} jwtPayload={this.state.jwt_payload} />
+        <Navbar dict={dict.navbar} changeLanguage={this.onChangeLanguage} toggleLogIn={this.onToggleLogIn} />
         <hr />
         <Switch>
           <Route exact path='/' render={() => <Home dict={dict.home}/>} />
           <Route exact path='/content/:slug' render={props => <Content slug={props.match.params.slug}/>} />
-          <Route exact path='/emergency' render={() => <EmergencyContact dict={dict.emergency} />} />
-          <Route exact path='/login' render={() => <LogIn changeLogInStatus={this.onToggleLogIn} />}/>
+          <PrivateRoute exact path='/emergency' component={() => <EmergencyContact dict={dict.emergency} />} />
+          <Route exact path='/login' render={() => <LogIn  toggleLogIn={this.onToggleLogIn} />}/>
           <Route exact path='/logout' render={() => <LogOut />} />
-          {/* <Route exact path="/logout" render={() => <Logout />}/>
-          <Route exact path="/setting" render={() => <Setting/>}/>
-          <Route exact path="/activate" render={() => <Activate/>}/> */}
           <Route render={() => <NotFound dict={dict.notfound} />} />
         </Switch>
         <hr />
@@ -106,4 +94,9 @@ class App extends Component {
 
 }
 
+const PrivateRoute = ({ component: Component, ...rest }) => (
+  <Route {...rest} render={props => Auth.isAuth() ? <Component {...props} /> : <Redirect to="/login" />} />
+);
+
 export default App;
+
