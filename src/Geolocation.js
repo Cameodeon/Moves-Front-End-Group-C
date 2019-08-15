@@ -60,7 +60,7 @@ class TutorialOfflineMap extends Component {
                 <td>
 
                   <a
-                    className="btn btn-outline-light"
+                    className="btn btn-default"
                     target="_blank"
                     rel="noopener noreferrer"
                     href="https://www.google.com/maps/search/Clinique Assalam(Hospital)/@35.7700194,-5.809536,18z/"
