@@ -47,7 +47,7 @@ function readTable(table, key) {
 }
 
 workbox.routing.registerRoute(
-    new RegExp('https://movessw-teamc-baa.herokuapp.com/api/phoneNumber/.*$'),
+    new RegExp('https://movesws-teamc-baa.herokuapp.com/api/phoneNumber/.*$'),
     ({ url, event }) => {
         console.log(url.pathname);
         return fetch(event.request)
@@ -70,7 +70,7 @@ workbox.routing.registerRoute(
 );
 
 workbox.routing.registerRoute(
-    new RegExp('https://movessw-teamc-baa.herokuapp.com/api/phoneNumber/.*$'),
+    new RegExp('https://movesws-teamc-baa.herokuapp.com/api/phoneNumber/.*$'),
     ({ url, event }) => {
         console.log(url.pathname);
         return fetch(event.request)
