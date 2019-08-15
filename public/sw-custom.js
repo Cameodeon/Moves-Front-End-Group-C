@@ -1,5 +1,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
+let DOMAIN = 'https://movessw-teamc-baa.herokuapp.com';
+
 function createDB() {
     let openRequest = indexedDB.open("movesDB", 1);
     openRequest.onupgradeneeded = function(event){
@@ -47,7 +49,7 @@ function readTable(table, key) {
 }
 
 workbox.routing.registerRoute(
-    new RegExp('https://movesws-teamc-baa.herokuapp.com/api/phoneNumber/.*$'),
+    new RegExp(`${DOMAIN}/api/textContent/.*$`),
     ({ url, event }) => {
         console.log(url.pathname);
         return fetch(event.request)
@@ -70,7 +72,7 @@ workbox.routing.registerRoute(
 );
 
 workbox.routing.registerRoute(
-    new RegExp('https://movesws-teamc-baa.herokuapp.com/api/phoneNumber/.*$'),
+    new RegExp(`${DOMAIN}/api/phoneNumber/.*$`),
     ({ url, event }) => {
         console.log(url.pathname);
         return fetch(event.request)
