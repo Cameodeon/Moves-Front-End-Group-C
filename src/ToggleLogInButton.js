@@ -20,12 +20,12 @@ class ToggleLogInButton extends Component {
             <div>
                 {
                 !Auth.isAuth() ?
-                <Link className="navbar-brand nav-link btn-dark" to="/login">
+                <Link className="nav-link btn-dark" to="/login">
                     <FontAwesomeIcon icon={['fas', 'users']} style={{color: 'white'}} size="lg" /> &nbsp;
                     {dict.login}
                 </Link>
                 :
-                <Link role="button" onClick={this.onLogOutButtonClick} className="navbar-brand nav-link btn-dark" to="/logout">
+                <Link role="button" onClick={this.onLogOutButtonClick} className="nav-link btn-dark" to="/logout">
                     <FontAwesomeIcon icon={['fas', 'sign-out-alt']} style={{color: 'white'}} size="lg" /> &nbsp;
                     {dict.logout}
                 </Link>

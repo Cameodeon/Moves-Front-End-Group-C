@@ -7,6 +7,10 @@ import './Navbar.css';
 
 class Navbar extends Component {
 
+    checkLangauge(langCode) {
+        return localStorage.getItem('lang') === langCode;
+    }
+
     render() {
         var { dict, changeLanguage, toggleLogIn } = this.props;
         return (
@@ -23,14 +27,11 @@ class Navbar extends Component {
                 <div className="collapse navbar-collapse" id="menuBar" data-parent="#customNavbar">
                     <ul className="navbar-nav text-center">
                         <li className="nav-item first-nav-item" id="homeBtn">
-                            <Link className="navbar-brand nav-link btn-dark" to="/">
+                            <Link className="nav-link btn-dark" to="/">
                                 <FontAwesomeIcon icon={['fas', 'home']} style={{color: 'white'}} size="lg" /> &nbsp;
                                 {dict.home}
                             </Link>
                         </li>
-                        {/* <li className="nav-item">
-                            <Link className="nav-link" to="#">{dict.help}</Link>
-                        </li>*/}
                         <li className="nav-item">
                             <a className="nav-link" href="https://cfvaa.com" target="_blank" rel="noopener noreferrer">{dict.icva}</a>
                         </li>
@@ -57,13 +58,13 @@ class Navbar extends Component {
                 <div className="collapse navbar-collapse" id="languageSelector" data-parent="#customNavbar">
                     <ul className="navbar-nav ml-auto text-center">
                         <li className="nav-item first-nav-item">
-                            <button className="nav-link btn" onClick={() => changeLanguage("en-CA")}>
+                            <button className="nav-link btn" onClick={() => changeLanguage("en-CA")} disabled={this.checkLangauge('en-CA')}>
                                 <span className="flag-icon flag-icon-gb"></span> &nbsp;
                                 English
                             </button>
                         </li>
                         <li className="nav-item">
-                            <button className="nav-link btn" onClick={() => changeLanguage("fr")}>
+                            <button className="nav-link btn" onClick={() => changeLanguage("fr")} disabled={this.checkLangauge('fr')}>
                                 <span className="flag-icon flag-icon-fr"></span> &nbsp;
                                 Français
                             </button>
@@ -73,7 +74,7 @@ class Navbar extends Component {
             </nav>
             {
                 Auth.isAuth() ?
-                    <p className="d-xl-none text-center greetMsgTextSm">Hello, <span className="fullName">{Auth.getUser().fullName}</span>!</p>
+                    <p className="d-xl-none text-center greetMsgTextSm">{dict.hello}, <span className="fullName">{Auth.getUser().fullName}</span>!</p>
                 :
                     null
             }
