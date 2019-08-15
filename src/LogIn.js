@@ -17,7 +17,7 @@ class LogIn extends Component{
     this.submitForm = this.submitForm.bind(this);
   }
 
-  url = "https://movesws-teamc-baa.herokuapp.com/api/user/login";
+  url = `${process.env.WS_DOMAIN}/api/user/login`;
 
   onChange(e){
       this.setState({[e.target.name]: e.target.value});
