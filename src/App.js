@@ -83,8 +83,8 @@ class App extends Component {
           <Route exact path='/' render={() => <Home dict={dict.home}/>} />
           <Route exact path='/content/:slug' render={props => <Content slug={props.match.params.slug}/>} />
           <PrivateRoute exact path='/emergency' component={() => <EmergencyContact dict={dict.emergency} />} />
-          <Route exact path='/login' render={() => <LogIn  toggleLogIn={this.onToggleLogIn} />}/>
-          <Route exact path='/logout' render={() => <LogOut />} />
+          <Route exact path='/login' render={() => <LogIn dict={dict.login} toggleLogIn={this.onToggleLogIn} />}/>
+          <Route exact path='/logout' render={() => <LogOut dict={dict.logout} />} />
           <Route render={() => <NotFound dict={dict.notfound} />} />
         </Switch>
         <hr />

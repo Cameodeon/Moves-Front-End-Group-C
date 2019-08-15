@@ -1,16 +1,23 @@
 .appTitle {
     font-size: 36pt;
     font-weight: bolder;
+    color: white;
 }
 
 .appDescription {
     font-size: 18pt;
+    font-weight: bold;
+    color: white;
 }
 
 #emergencyButton {
     margin-bottom: 0.8em;
     font-size: 20pt;
     font-weight: bold;
+}
+
+header {
+    height: 12em;
 }
 
 .header {

@@ -13,14 +13,16 @@
     "navbar": {
         "home": "Accueil",
         "help": "Besoin d'aide ?",
-        "info": "Informations complémentaires",
-        "about": "À propos",
+        "icva": "Site ICVA",
+        "about": "À propos de MO:VES",
         "contact": "Contact",
         "toggleLog": {
             "login": "Connexion",
-            "logout": "Déconnexion"
+            "logout": "Déconnexion",
+            "hello": "Bonjour"
         },
-        "selectLang": "Choisir la langue"
+        "selectLang": "Choisir la langue",
+        "hello": "Bonjour"
     },
     "notfound": {
         "title": "404 - Oups!  Cette page est introuvable.",
@@ -29,5 +31,15 @@
     "emergency": {
         "moroccoCallCenter": "Centre d'appel marocain",
         "denmarkCallCenter": "Centre d'appel danois"
+    },
+    "login": {
+        "login": "Connexion",
+        "username": "Nom d'utilisateur",
+        "password": "Mot de passe"
+    },
+    "logout": {
+        "header": "Vous êtes déconnecté!",
+        "messagePart1": "Vous serez redirigé à la page précédente en",
+        "messagePart2": "seconde(s)."
     }
 }

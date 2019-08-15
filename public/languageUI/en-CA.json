@@ -23,9 +23,11 @@
         "contact": "Contact Us!",
         "toggleLog": {
             "login": "Log In",
-            "logout": "Log Out"
+            "logout": "Log Out",
+            "hello": "Hello"
         },
-        "selectLang": "Select Language"
+        "selectLang": "Select Language",
+        "hello": "Hello"
     },
     "notfound": {
         "title": "404 - Oops! This page can’t be found.",
@@ -34,5 +36,15 @@
     "emergency": {
         "moroccoCallCenter": "Morocco Call Center",
         "denmarkCallCenter": "Denmark Call Center"
+    },
+    "login": {
+        "login": "Log In",
+        "username": "Username",
+        "password": "Password"
+    },
+    "logout": {
+        "header": "You're logged out!",
+        "messagePart1": "Redirecting to previous page in",
+        "messagePart2": "second(s)."
     }
 }

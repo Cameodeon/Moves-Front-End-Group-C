@@ -20,10 +20,11 @@ class LogOut extends Component {
     }
 
     render() {
+        var { dict } = this.props;
         return (
             <div className="container-fluid">
-                <h2>You are logged out!</h2>
-                <p>Redirecting to previous page in <span className="timerSecond">{this.state.second}</span> second(s).</p>
+                <h2 className="logoutHeader">{dict.header}</h2>
+                <p className="logoutMsg">{dict.messagePart1} <span className="timerSecond">{this.state.second}</span> {dict.messagePart2}.</p>
             </div>
         );
     }

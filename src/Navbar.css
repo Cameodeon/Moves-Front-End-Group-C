@@ -36,7 +36,7 @@ border-left: 0.1px solid black;
     color: white;
     font-size: 16pt;
     height: 100%;
-    padding-top: calc(3.5% - 4px);
+    padding-top: calc(3.5% - 3.5px);
 }
 
 .greetMsgTextSm {

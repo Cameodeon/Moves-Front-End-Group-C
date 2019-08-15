@@ -20,8 +20,8 @@ class Content extends Component {
       title: data.data[0].title
     }))
     .catch(err =>this.setState({ 
-      textContent: "<h2>Content Coming Soon...</h2>",
-      title: "You are offline... :("
+      textContent: "<p>Or probably you are offline.</p>",
+      title: "Content Comming Soon..."
     }));
   }
 

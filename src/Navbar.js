@@ -46,7 +46,7 @@ class Navbar extends Component {
                         {
                             Auth.isAuth() ?
                                 <li className="nav-item d-none d-xl-inline greetingMsg">
-                                    <p className="greetingMsgText">Hello, <span className="fullName">{Auth.getUser().fullName}</span>!</p>
+                                    <p className="greetingMsgText">{dict.hello}, <span className="fullName">{Auth.getUser().fullName}</span>!</p>
                                 </li>
                             :
                                 null

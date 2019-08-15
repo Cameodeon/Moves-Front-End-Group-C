@@ -53,27 +53,28 @@ class LogIn extends Component{
   }
 
   render() {
+    var { dict } = this.props;
     return Auth.isAuth() ? <Redirect to='/'/> : (      
       <div className="container-fluid">
-        <h2 className="form-signin-heading">Log In</h2>
+        <h2 className="form-signin-heading">{dict.login}</h2>
         <p className="errMsg">{this.state.errMsg}</p>
         <div className="form-group">
-          <label htmlFor="username" className="control-label">Username</label>
+          <label htmlFor="username" className="control-label">{dict.username}</label>
           <div className="col-md-12 col-xl-6">
             <input type="text" name="username" id="username" className="form-control" value={this.state.username} ref={(i) => {this.input = i}} onChange={this.onChange} autoFocus />
           </div>
         </div>
 
         <div className="form-group">
-          <label htmlFor="password" className="control-label">Password</label>
+          <label htmlFor="password" className="control-label">{dict.password}}</label>
           <div className="col-md-12 col-xl-6">
             <input type="password" name="password" id="password" className="form-control" value={this.state.password} ref={(i) => {this.input = i}} onChange={this.onChange} />
           </div>
         </div>
 
         <div className="form-group">
-          <div className="col-md-offset-2 col-md-6">
-            <button className="btn btn-primary" onClick={this.submitForm} >Log In</button>
+          <div className="col-md-offset-2 col-md-12 col-xl-6">
+            <button className="btn btn-primary btn-block" onClick={this.submitForm} >Log In</button>
           </div>
         </div>
     </div>
