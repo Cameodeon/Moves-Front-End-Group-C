@@ -47,7 +47,7 @@ function readTable(table, key) {
 }
 
 workbox.routing.registerRoute(
-    new RegExp(`${process.env.WS_DOMAIN}/api/phoneNumber/.*$`),
+    new RegExp(`${process.env.WS_DOMAIN}/api/textContent/.*$`),
     ({ url, event }) => {
         console.log(url.pathname);
         return fetch(event.request)
