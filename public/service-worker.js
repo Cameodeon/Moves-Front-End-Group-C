@@ -4,7 +4,8 @@ function createDB() {
     let openRequest = indexedDB.open("movesDB", 1);
     openRequest.onupgradeneeded = function(event){
         let db = event.target.result;
-        let store = db.createObjectStore("textContent");
+        db.createObjectStore("textContent");
+        db.createObjectStore("phoneNumber");
     }
 }
 
@@ -66,6 +67,29 @@ workbox.routing.registerRoute(
             });
     },
     "GET"
+);
+
+workbox.routing.registerRoute(
+  new RegExp('https://moves-teamc-baa.herokuapp.com/api/phoneNumber/.*$'),
+  ({ url, event }) => {
+      console.log(url.pathname);
+      return fetch(event.request)
+          .then((res) => {
+              let clonedRes = res.clone();
+              return clonedRes.json()
+              .then((data) => {
+                  syncItem(data, "phoneNumber", url.pathname);
+              })
+              .then(() => {
+                  return res;
+              });
+
+          })
+          .catch(err => {
+              return readTable("phoneNumber", url.pathname);
+          });
+  },
+  "GET"
 );
 
 workbox.precaching.precacheAndRoute([
