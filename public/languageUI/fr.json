@@ -1,0 +1,33 @@
+{
+    "home": {
+        "lawAndTradition": "Lois et traditions",
+        "location": "Emplacement",
+        "thiefCases":  "Cas de vol",
+        "languageBarrier": "Barrières linguistiques",
+        "overnightStay": "Nuitées"
+    },
+    "header": {
+        "description": "Service d'urgence pour les volontaires au Maroque",
+        "call": "APPEL D'URGENCE"
+    },
+    "navbar": {
+        "home": "Accueil",
+        "help": "Besoin d'aide ?",
+        "info": "Informations complémentaires",
+        "about": "À propos",
+        "contact": "Contact",
+        "toggleLog": {
+            "login": "Connexion",
+            "logout": "Déconnexion"
+        },
+        "selectLang": "Choisir la langue"
+    },
+    "notfound": {
+        "title": "404 - Oups!  Cette page est introuvable.",
+        "message": "Il n'y a rien ici. Essayez un des liens dans le menu ou appuyez sur le bouton « Retour » pour revenir à la page précédente."
+    },
+    "emergency": {
+        "moroccoCallCenter": "Centre d'appel marocain",
+        "denmarkCallCenter": "Centre d'appel danois"
+    }
+}
