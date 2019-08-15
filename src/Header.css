@@ -1,0 +1,20 @@
+.appTitle {
+    font-size: 36pt;
+    font-weight: bolder;
+}
+
+.appDescription {
+    font-size: 18pt;
+}
+
+#emergencyButton {
+    margin-bottom: 0.8em;
+    font-size: 20pt;
+    font-weight: bold;
+}
+
+.header {
+    background-image: url(/image/banner.jpg);
+    background-size: cover;
+    height: 100%;
+}

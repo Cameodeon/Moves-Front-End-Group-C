@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-import { Redirect } from 'react-router';
 import './LogOut.css'
 
 class LogOut extends Component {

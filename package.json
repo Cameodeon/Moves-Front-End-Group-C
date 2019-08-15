@@ -2,6 +2,9 @@
   "name": "moves",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "10.10.0"
+  },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.21",
     "@fortawesome/free-brands-svg-icons": "^5.10.1",
@@ -11,6 +14,7 @@
     "bootstrap": "^4.3.1",
     "flag-icon-css": "^3.3.0",
     "jquery": "^3.4.1",
+    "jwt-decode": "^2.2.0",
     "popper.js": "^1.15.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",

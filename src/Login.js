@@ -21,6 +21,10 @@ class LogIn extends Component{
   onChange(e){
       this.setState({[e.target.name]: e.target.value});
   }
+
+  isLoggedIn() {
+    return localStorage.getItem('access_token');
+  }
   
   submitForm(e){
     e.preventDefault();
@@ -52,7 +56,7 @@ class LogIn extends Component{
   }
 
   render() {
-    return this.props.isLoggedIn() ? <Redirect to='/'/> : (      
+    return this.isLoggedIn() ? <Redirect to='/'/> : (      
       <div className="container-fluid">
         <h2 className="form-signin-heading">Log In</h2>
         <p className="errMsg">{this.state.errMsg}</p>
