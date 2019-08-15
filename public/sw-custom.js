@@ -1,5 +1,3 @@
-import { reject } from "q";
-
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 let DOMAIN = 'https://movesws-teamc-baa.herokuapp.com';
@@ -27,40 +25,40 @@ function preCacheDB() {
         languages.forEach((lang) => {
 
             fetch(`${DOMAIN}/api/textContent/${lang}/thiefCases`)
-                .then(item => {return syncItem(item, "textContent", item.links[0].href)} )
+                .then((item) => { return syncItem(item, "textContent", item.links[0].href) })
                 .then(() => {
                     return fetch(`${DOMAIN}/api/textContent/${lang}/contact`)
                 })
-                .then(item => {return syncItem(item, "textContent", item.links[0].href)} )
+                .then(item => { return syncItem(item, "textContent", item.links[0].href) })
                 .then(() => {
                     return fetch(`${DOMAIN}/api/textContent/${lang}/lawAndTradition`)
                 })
-                .then(item => {return syncItem(item, "textContent", item.links[0].href)} )
+                .then(item => { return syncItem(item, "textContent", item.links[0].href) })
                 .then(() => {
                     return fetch(`${DOMAIN}/api/textContent/${lang}/medicalNeed`)
                 })
-                .then(item => {return syncItem(item, "textContent", item.links[0].href)} )
+                .then(item => { return syncItem(item, "textContent", item.links[0].href) })
                 .then(() => {
                     return fetch(`${DOMAIN}/api/textContent/${lang}/overnightStay`)
                 })
-                .then(item => {return syncItem(item, "textContent", item.links[0].href)} )
+                .then(item => { return syncItem(item, "textContent", item.links[0].href) })
                 .then(() => {
                     return fetch(`${DOMAIN}/api/textContent/${lang}/about`)
                 })
-                .then(item => {return syncItem(item, "textContent", item.links[0].href)} )
+                .then(item => { return syncItem(item, "textContent", item.links[0].href) })
                 .then(() => {
                     return fetch(`${DOMAIN}/api/textContent/${lang}/languageBarrier`)
                 })
-                .then(item => {return syncItem(item, "textContent", item.links[0].href)} )
+                .then(item => { return syncItem(item, "textContent", item.links[0].href) })
                 .then(() => {
                     return fetch(`${DOMAIN}/api/textContent/${lang}/safetyTips`)
                 })
-                .then(item => {return syncItem(item, "textContent", item.links[0].href)} )
+                .then(item => { return syncItem(item, "textContent", item.links[0].href) })
                 .then(() => {
                     resolve();
                 })
                 .catch((err) => {
-                    reject("[Service Worker] Could not precache database");
+                    reject("[Service Worker] Could not precache database: " + err);
                 })
         });
     });
