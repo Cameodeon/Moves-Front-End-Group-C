@@ -1,13 +1,11 @@
 .appTitle {
     font-size: 36pt;
     font-weight: bolder;
-    color: white;
 }
 
 .appDescription {
     font-size: 18pt;
     font-weight: bold;
-    color: white;
 }
 
 #emergencyButton {
@@ -17,11 +15,25 @@
 }
 
 header {
-    height: 12em;
+    height: 14em;
 }
 
 .header {
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: relative;
+}
+
+.header::after {
+    content: "";
     background-image: url(/image/banner.jpg);
     background-size: cover;
-    height: 100%;
+    opacity: 0.7;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;
 }

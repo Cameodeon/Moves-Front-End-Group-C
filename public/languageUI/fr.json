@@ -22,10 +22,10 @@
         "toggleLog": {
             "login": "Connexion",
             "logout": "Déconnexion",
-            "hello": "Bonjour"
+            "hello": "Allô"
         },
         "selectLang": "Choisir la langue",
-        "hello": "Bonjour"
+        "hello": "Allô"
     },
     "notfound": {
         "title": "404 - Oups!  Cette page est introuvable.",

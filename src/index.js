@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { HashRouter  } from 'react-router-dom';
+import { BrowserRouter  } from 'react-router-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
@@ -10,9 +10,9 @@ import 'flag-icon-css/css/flag-icon.min.css';
 import './fontawesome.js';
 
 ReactDOM.render(
-    <HashRouter >
+    <BrowserRouter>
         <App />
-    </HashRouter >,
+    </BrowserRouter >,
     document.getElementById('root')
 );
 

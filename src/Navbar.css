@@ -47,4 +47,9 @@ border-left: 0.1px solid black;
 .fullName {
     font-weight: bold;
 }
+
+button:disabled {
+    font-weight: bolder;
+    color: white !important;
+}
   
