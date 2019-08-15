@@ -8,7 +8,7 @@ class EmergencyContact extends Component {
         maCallCenter: ""
     }
 
-    url = `${process.env.WS_DOMAIN}/api/phoneNumber/`;
+    url = `https://movessw-teamc-baa.herokuapp.com/api/phoneNumber/`;
     
     phoneName = ['dkCallCenter', "maCallCenter"];
 
