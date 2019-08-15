@@ -10,7 +10,7 @@ class Content extends Component {
     title: ""
   };
 
-  url = `https://movesws-teamc-baa.herokuapp.com/api/textContent/${localStorage.getItem("lang")}/`;
+  url = `${process.env.WS_DOMAIN}/api/textContent/${localStorage.getItem("lang")}/`;
 
   componentDidMount() {
     fetch(this.url + this.props.slug)
