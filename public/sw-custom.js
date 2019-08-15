@@ -1,5 +1,10 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
+<<<<<<< HEAD
 let DOMAIN = 'https://movesws-teamc-baa.herokuapp.com'
+=======
+
+let DOMAIN = 'https://movesws-teamc-baa.herokuapp.com';
+>>>>>>> 5b72196ab619b4f4cff94c08cfc8e0762a633806
 
 function createDB() {
     let openRequest = indexedDB.open("movesDB", 1);
