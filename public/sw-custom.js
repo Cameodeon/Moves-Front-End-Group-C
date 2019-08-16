@@ -18,46 +18,19 @@ addEventListener('install', function (event) {
 });
 
 function preCacheDB() {
+        let slugs = ["thiefCases", "contact", "lawAndTradition", "medicalNeed", "overnightStay", 
+                     "about", "languageBarrier", "safetyTips", "textContent"];
         let languages = ["en-CA", "fr"];
 
         languages.forEach((lang) => {
-
-            fetch(`${DOMAIN}/api/textContent/${lang}/thiefCases`)
-                .then((item) => { 
-                    console.log(item);
-                    return syncItem(item, "textContent", item.links[0].href) 
-                })
-                .then(() => {
-                    return fetch(`${DOMAIN}/api/textContent/${lang}/contact`)
-                })
-                .then(item => { return syncItem(item, "textContent", item.links[0].href) })
-                .then(() => {
-                    return fetch(`${DOMAIN}/api/textContent/${lang}/lawAndTradition`)
-                })
-                .then(item => { return syncItem(item, "textContent", item.links[0].href) })
-                .then(() => {
-                    return fetch(`${DOMAIN}/api/textContent/${lang}/medicalNeed`)
-                })
-                .then(item => { return syncItem(item, "textContent", item.links[0].href) })
-                .then(() => {
-                    return fetch(`${DOMAIN}/api/textContent/${lang}/overnightStay`)
-                })
-                .then(item => { return syncItem(item, "textContent", item.links[0].href) })
-                .then(() => {
-                    return fetch(`${DOMAIN}/api/textContent/${lang}/about`)
-                })
-                .then(item => { return syncItem(item, "textContent", item.links[0].href) })
-                .then(() => {
-                    return fetch(`${DOMAIN}/api/textContent/${lang}/languageBarrier`)
-                })
-                .then(item => { return syncItem(item, "textContent", item.links[0].href) })
-                .then(() => {
-                    return fetch(`${DOMAIN}/api/textContent/${lang}/safetyTips`)
-                })
-                .then(item => { return syncItem(item, "textContent", item.links[0].href) })
+            slugs.forEach((slug) => {
+                fetch(`${DOMAIN}/api/textContent/${lang}/${slug}`)
+                .then(response => response.json())
+                .then(item => syncItem(item, "textContent", item.links[0].href))
                 .catch((err) => {
-                    reject("[Service Worker] Could not precache database: " + err);
-                })
+                    console.log("[Service Worker] Error: " + err)
+                });
+            });
         });
 }
 
