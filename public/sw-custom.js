@@ -19,7 +19,7 @@ addEventListener('install', function (event) {
 
 function preCacheDB() {
         let slugs = ["thiefCases", "contact", "lawAndTradition", "medicalNeed", "overnightStay", 
-                     "about", "languageBarrier", "safetyTips", "textContent"];
+                     "about", "languageBarrier", "safetyTips"];
         let languages = ["en-CA", "fr"];
 
         languages.forEach((lang) => {

@@ -4,18 +4,38 @@ let DOMAIN = 'https://movesws-teamc-baa.herokuapp.com';
 
 function createDB() {
     let openRequest = indexedDB.open("movesDB", 1);
-    openRequest.onupgradeneeded = function(event){
+    openRequest.onupgradeneeded = function (event) {
         let db = event.target.result;
         db.createObjectStore("textContent");
         db.createObjectStore("phoneNumber");
     }
 }
 
-addEventListener('install', function(event) {
+addEventListener('install', function (event) {
     console.log("[Service Woker] Installing...");
     event.waitUntil(createDB());
+    preCacheDB();
 });
-   
+
+function preCacheDB() {
+        let slugs = ["thiefCases", "contact", "lawAndTradition", "medicalNeed", "overnightStay", 
+                     "about", "languageBarrier", "safetyTips"];
+        let languages = ["en-CA", "fr"];
+
+        languages.forEach((lang) => {
+            slugs.forEach((slug) => {
+                fetch(`${DOMAIN}/api/textContent/${lang}/${slug}`)
+                .then(response => response.json())
+                .then(item => syncItem(item, "textContent", item.links[0].href))
+                .catch((err) => {
+                    console.log("[Service Worker] Error: " + err)
+                });
+            });
+        });
+}
+
+
+
 
 function syncItem(item, table, key) {
     let open = indexedDB.open("movesDB", 1);
@@ -30,7 +50,6 @@ function syncItem(item, table, key) {
     });
 }
 
-
 function readTable(table, key) {
     let open = indexedDB.open("movesDB", 1);
 
@@ -40,9 +59,9 @@ function readTable(table, key) {
             let tran = db.transaction(table);
             let objStore = tran.objectStore(table);
             let request = objStore.get(key);
-            request.onsuccess = function(event) {
+            request.onsuccess = function (event) {
                 let data = JSON.stringify(event.target.result);
-                return resolve(new Response(data, { headers: { 'content-type':'text/plain' } })); 
+                return resolve(new Response(data, { headers: { 'content-type': 'text/plain' } }));
             };
         };
     });
@@ -56,12 +75,12 @@ workbox.routing.registerRoute(
             .then((res) => {
                 let clonedRes = res.clone();
                 return clonedRes.json()
-                .then((data) => {
-                    syncItem(data, "textContent", url.pathname);
-                })
-                .then(() => {
-                    return res;
-                });
+                    .then((data) => {
+                        syncItem(data, "textContent", url.pathname);
+                    })
+                    .then(() => {
+                        return res;
+                    });
 
             })
             .catch(err => {
@@ -79,25 +98,25 @@ workbox.routing.registerRoute(
             .then((res) => {
                 let clonedRes = res.clone();
                 return clonedRes.json()
-                .then((data) => {
-                    syncItem(data, "phoneNumber", url.pathname);
-                })
-                .then(() => {
-                    return res;
-                });
-  
+                    .then((data) => {
+                        syncItem(data, "phoneNumber", url.pathname);
+                    })
+                    .then(() => {
+                        return res;
+                    });
+
             })
             .catch(err => {
                 return readTable("phoneNumber", url.pathname);
             });
     },
     "GET"
-  );
+);
 
 workbox.precaching.precacheAndRoute([
   {
     "url": "asset-manifest.json",
-    "revision": "34ecbf3a3fe0eb2a9f6648cb96e8bda3"
+    "revision": "d62891a104e54d9f535d4854b23ff818"
   },
   {
     "url": "favicon.png",
@@ -157,39 +176,39 @@ workbox.precaching.precacheAndRoute([
   },
   {
     "url": "index.html",
-    "revision": "2a8de2c3446af21e105facbb3e004f31"
+    "revision": "4cbe25b9a69bc172530eea58604e6e23"
   },
   {
     "url": "languageUI/en-CA.json",
-    "revision": "f12a66dcc64731c4a003c2c05c43c438"
+    "revision": "0ce75f4d131e3050c1fa986c6de1732e"
   },
   {
     "url": "languageUI/fr.json",
-    "revision": "e012afa53545be88116ff688827b8c0d"
+    "revision": "41a7ce2dbe91b763c5415a11524f359b"
   },
   {
     "url": "manifest.json",
     "revision": "c9109c478ca95e49d44c1d33c3ebc1d4"
   },
   {
-    "url": "precache-manifest.0331c351719dd6ec025306190240252b.js",
-    "revision": "0331c351719dd6ec025306190240252b"
+    "url": "precache-manifest.4183fa0ec22e51822c27d2690ebc7c82.js",
+    "revision": "4183fa0ec22e51822c27d2690ebc7c82"
   },
   {
     "url": "static/css/2.a65d5813.chunk.css",
     "revision": "0f02bb75eea16478879545e864eab4da"
   },
   {
-    "url": "static/css/main.d9144c21.chunk.css",
-    "revision": "610c448c10e4f86bac9da6fb1f13caaf"
+    "url": "static/css/main.263a3157.chunk.css",
+    "revision": "29d01a0e537d599102f2249893f30ce2"
   },
   {
-    "url": "static/js/2.277c5d63.chunk.js",
-    "revision": "bb8d7119818434fcf78f84f8c10bb805"
+    "url": "static/js/2.1e5b29f7.chunk.js",
+    "revision": "fb9a5fd4f3d07d966717c590cc58c4b6"
   },
   {
-    "url": "static/js/main.95ff122c.chunk.js",
-    "revision": "40c741c551d0b9a92e0fddb1894e7935"
+    "url": "static/js/main.1ae17cbc.chunk.js",
+    "revision": "ec4b116c09a43c753dfbe0ab44464f93"
   },
   {
     "url": "static/js/runtime~main.a8a9905a.js",
@@ -229,7 +248,7 @@ workbox.precaching.precacheAndRoute([
   },
   {
     "url": "sw-custom.js",
-    "revision": "0dbbab089faef33bdb1dd18151001c4e"
+    "revision": "1e129995295b3877d2f3a73d0c8e5fc1"
   }
 ]);
 

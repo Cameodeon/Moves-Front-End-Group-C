@@ -10,6 +10,7 @@ import LogIn from './LogIn';
 import LogOut from './LogOut';
 import Auth from './Auth';
 import TutorialOfflineMap from './Geolocation';
+import Footer from './Footer';
 import './App.css';
 
 class App extends Component {
@@ -90,6 +91,7 @@ class App extends Component {
           <Route render={() => <NotFound dict={dict.notfound} />} />
         </Switch>
         <hr />
+        <Footer />
       </div>
     );
   }

@@ -42,6 +42,10 @@ class LogIn extends Component{
       if (data.token) {
         this.props.history.goBack();
         this.props.toggleLogIn(true, data.token);
+
+        // Dummy request for Service Worker to hijack
+        fetch('https://movesws-teamc-baa.herokuapp.com/api/phoneNumber/dkCallCenter', { headers: { 'Content-Type':  'application/json', "Authorization": `Bearer ${localStorage.getItem('access_token')}` }});
+        fetch('https://movesws-teamc-baa.herokuapp.com/api/phoneNumber/maCallCenter', { headers: { 'Content-Type':  'application/json', "Authorization": `Bearer ${localStorage.getItem('access_token')}` }});
       } else {
         this.setState({errMsg: data.message});
       }

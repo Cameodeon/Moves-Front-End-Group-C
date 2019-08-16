@@ -1,0 +1,14 @@
+footer {
+    height: 4em;
+}
+
+.footer {
+    color: white;
+    height: 80%;
+    width: 100%;
+    padding-top: 0.85em;
+}
+
+.appName  {
+    font-weight: bolder;
+}
